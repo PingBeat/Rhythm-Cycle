@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://but30trballme"]
+
+[ext_resource type="Script" uid="uid://isbt87hhldcu" path="res://Menus/menu_settings.gd" id="1_in203"]
+[ext_resource type="Texture2D" uid="uid://k864y1bu15wi" path="res://Menus/unnamed.jpg" id="2_gjw66"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mh2mw"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuwfy"]
+bg_color = Color(0.29803923, 0.6862745, 0.3137255, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674b8"]
+bg_color = Color(0.27450982, 1, 0.15294118, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo024"]
+bg_color = Color(0.23530415, 0.30512348, 1.92523e-07, 1)
+
+[node name="MenuSettings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_in203")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gjw66")
+stretch_mode = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -56.5
+offset_right = 57.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mh2mw")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="SliderVolume" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="CheckFullscreen" type="CheckBox" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Plein Écran"
+
+[node name="BoutonRetour" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_cuwfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_674b8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xo024")
+text = "Retour"
+
+[connection signal="value_changed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/SliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="toggled" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
+[connection signal="pressed" from="ColorRect/PanelContainer/MarginContainer/VBoxContainer/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

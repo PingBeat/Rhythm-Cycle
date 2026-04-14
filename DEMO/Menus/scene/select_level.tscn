@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://fcq26a508337"]
+
+[ext_resource type="Texture2D" uid="uid://xnmaw13d2kw6" path="res://scene/Le-Majordome-film-banniere-850x478.jpg" id="1_hpupe"]
+[ext_resource type="PackedScene" uid="uid://cyup2deka7pi3" path="res://level_select_button.tscn" id="3_vf7qe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62unk"]
+texture = ExtResource("1_hpupe")
+modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[node name="SelectLevel" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_62unk")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 160
+text = "LEVEL SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 220.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="LevelSelectButton" parent="CenterContainer/GridContainer" instance=ExtResource("3_vf7qe")]
+layout_mode = 2
+
+[node name="LevelSelectButton2" parent="CenterContainer/GridContainer" instance=ExtResource("3_vf7qe")]
+layout_mode = 2
+
+[node name="LevelSelectButton3" parent="CenterContainer/GridContainer" instance=ExtResource("3_vf7qe")]
+layout_mode = 2
+
+[node name="LevelSelectButton4" parent="CenterContainer/GridContainer" instance=ExtResource("3_vf7qe")]
+layout_mode = 2

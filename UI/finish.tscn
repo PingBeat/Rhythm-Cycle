@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7obyj3y1orww"]
+
+[ext_resource type="Script" uid="uid://bshi8hq4n0by2" path="res://UI/finish.gd" id="1_khvnr"]
+
+[node name="FinishMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khvnr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.25
+offset_top = -65.25
+offset_right = 113.25
+offset_bottom = 65.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ScoreFinal" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Score : 0"
+horizontal_alignment = 1
+
+[node name="Conseil" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Faire le tri selectif"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -240.0
+offset_right = 192.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 77
+
+[node name="BoutonMenu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Menu Principal"
+
+[node name="BoutonSuivant" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Niveau Suivant"
+
+[connection signal="pressed" from="HBoxContainer/BoutonMenu" to="." method="_on_bouton_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/BoutonSuivant" to="." method="_on_bouton_suivant_pressed"]

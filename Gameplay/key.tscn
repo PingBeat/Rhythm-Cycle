@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn36rhh8mch1p"]
+
+[ext_resource type="Script" uid="uid://nxework230r6" path="res://Gameplay/key.gd" id="1_up4cr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ltq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_up4cr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0yg6"]
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_up4cr")
+
+[node name="Perfect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Perfect"]
+shape = SubResource("CircleShape2D_7ltq3")
+
+[node name="Good" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_up4cr")
+
+[node name="Ok" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ok"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_p0yg6")
+
+[connection signal="body_entered" from="Perfect" to="." method="_on_perfect_body_entered"]
+[connection signal="body_exited" from="Perfect" to="." method="_on_perfect_body_exited"]
+[connection signal="body_entered" from="Good" to="." method="_on_good_body_entered"]
+[connection signal="body_exited" from="Good" to="." method="_on_good_body_exited"]
+[connection signal="body_entered" from="Ok" to="." method="_on_ok_body_entered"]
+[connection signal="body_exited" from="Ok" to="." method="_on_ok_body_exited"]
