@@ -1,0 +1,14 @@
+extends Control
+
+@export var vitesse_defilement: float = 60.0 # Tu pourras modifier la vitesse dans l'inspecteur
+
+@onready var texte_credits: RichTextLabel = $RichTextLabel
+
+func _ready():
+	texte_credits.position.y = get_viewport_rect().size.y
+
+func _process(delta: float):
+	texte_credits.position.y -= vitesse_defilement * delta
+
+func _on_bouton_retour_pressed():
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")

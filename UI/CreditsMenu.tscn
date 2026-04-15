@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bqunyxnjtfghu"]
+
+[ext_resource type="Script" uid="uid://cep3pr4x2ipt8" path="res://UI/credits.gd" id="1_s6k4m"]
+[ext_resource type="FontFile" uid="uid://ctcalt54s23bx" path="res://Assets/Texte/Inter_Tight/InterTight-VariableFont_wght.ttf" id="2_6m0of"]
+[ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="3_57x34"]
+[ext_resource type="FontFile" uid="uid://dqeimael15oud" path="res://Assets/Texte/Inter_Tight/static/InterTight-BoldItalic.ttf" id="4_ur1mf"]
+[ext_resource type="FontFile" uid="uid://0yctpiywev26" path="res://Assets/Texte/Inter_Tight/static/InterTight-Italic.ttf" id="5_tiksb"]
+
+[node name="CreditsMenu" type="Control" unique_id=738081503]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6k4m")
+
+[node name="Fond" type="ColorRect" parent="." unique_id=72270080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[node name="BoutonRetour" type="Button" parent="." unique_id=2144844025]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 585.0
+offset_right = 153.0
+offset_bottom = 634.0
+text = "Retour au menu"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=855414684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_6m0of")
+theme_override_fonts/bold_font = ExtResource("3_57x34")
+theme_override_fonts/bold_italics_font = ExtResource("4_ur1mf")
+theme_override_fonts/italics_font = ExtResource("5_tiksb")
+theme_override_fonts/mono_font = ExtResource("2_6m0of")
+bbcode_enabled = true
+text = "[center]
+[b]RYTHM-CYCLE[/b]
+
+[b]Chef de Projet [/b]
+EL ARAARI Maelys
+
+[b Lead Développeur [/b]
+AUBERT Lily 
+
+[b] Développeurs [/b]
+HAMMOUDA Rayane
+FERCHICHE Jalil-Eddine
+
+[b] Testeurs & Utilisateurs [/b]
+EL ARAARI Maelys
+RICARD Noah
+
+[b] Compositeurs [/b]
+RICARD Noah
+
+[b] Musiques [/b]
+Musique crée par RICARD Noah
+....
+....
+
+[b] Assets Graphiques [/b]
+Police d'écriture : [Nom de la police]
+...
+
+[/center]"
+scroll_active = false
+
+[connection signal="pressed" from="BoutonRetour" to="." method="_on_bouton_retour_pressed"]
