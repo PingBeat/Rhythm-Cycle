@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7obyj3y1orww"]
+[gd_scene format=3 uid="uid://b7obyj3y1orww"]
 
 [ext_resource type="Script" uid="uid://bshi8hq4n0by2" path="res://UI/finish.gd" id="1_khvnr"]
 
-[node name="FinishMenu" type="Control"]
+[node name="FinishMenu" type="Control" unique_id=1214162262]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_khvnr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=999415473]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5882353)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=60794754]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,19 +36,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="ScoreFinal" type="Label" parent="VBoxContainer"]
+[node name="ScoreFinal" type="Label" parent="VBoxContainer" unique_id=2077032962]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Score : 0"
 horizontal_alignment = 1
 
-[node name="Conseil" type="Label" parent="VBoxContainer"]
+[node name="Conseil" type="Label" parent="VBoxContainer" unique_id=2008743884]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Faire le tri selectif"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1404475632]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,12 +63,12 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 77
 
-[node name="BoutonMenu" type="Button" parent="HBoxContainer"]
+[node name="BoutonMenu" type="Button" parent="HBoxContainer" unique_id=478367050]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Menu Principal"
 
-[node name="BoutonSuivant" type="Button" parent="HBoxContainer"]
+[node name="BoutonSuivant" type="Button" parent="HBoxContainer" unique_id=619683645]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Niveau Suivant"
