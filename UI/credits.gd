@@ -11,4 +11,4 @@ func _process(delta: float):
 	texte_credits.position.y -= vitesse_defilement * delta
 
 func _on_bouton_retour_pressed():
-	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+	LoadingScreen.change_scene("res://UI/main_menu.tscn")

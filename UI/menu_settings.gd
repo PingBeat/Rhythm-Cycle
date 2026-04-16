@@ -8,10 +8,15 @@ var bus_index
 @onready var panel_container = $PanelContainer
 @onready var pause_controls = $PanelContainer/MarginContainer/BoitePrincipale/PauseControls
 @onready var universal_settings = $PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings
+@onready var slider_volume = $PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings/SliderVolume
 
 func _ready():
 	# On repère le canal "Master" (le son général)
 	bus_index = AudioServer.get_bus_index("Master")
+	
+	# Initialiser le slider à la valeur sauvegardée
+	if slider_volume:
+		slider_volume.set_value_no_signal(Levelmanager.config.get_value("audio", "master_volume", 0.8))
 	
 	# Sécurité : On s'assure que le menu central n'est pas caché
 	panel_container.visible = true
@@ -54,7 +59,7 @@ func _on_check_fullscreen_toggled(toggled_on):
 # --- 5. LES BOUTONS ---
 func _on_bouton_retour_pressed():
 	if get_tree().current_scene == self:
-		get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+		LoadingScreen.change_scene("res://UI/main_menu.tscn")
 	else:
 		get_tree().paused = false
 		get_parent().queue_free()
@@ -66,4 +71,4 @@ func _on_bouton_restart_pressed() -> void:
 
 func _on_bouton_exit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+	LoadingScreen.change_scene("res://UI/main_menu.tscn")

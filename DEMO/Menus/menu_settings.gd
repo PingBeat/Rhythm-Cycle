@@ -26,7 +26,7 @@ func _on_check_fullscreen_toggled(toggled_on):
 func _on_bouton_retour_pressed():
 	# Si on a ouvert le menu depuis le menu principal
 	if get_tree().current_scene == self:
-		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+		LoadingScreen.change_scene("res://Menus/main_menu.tscn")
 	else:
 		# Si on l'a ouvert par-dessus le jeu :
 		get_tree().paused = false

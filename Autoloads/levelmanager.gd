@@ -25,9 +25,15 @@ func save_settings(value):
 
 func load_settings():
 	var err = config.load(save_path)
-	if err != OK: return # Si le fichier n'existe pas encore
+	var vol = 1.0
+	if err == OK: 
+		vol = config.get_value("audio", "master_volume", 1.0)
 	
-	var vol = config.get_value("audio", "master_volume", 1.0)
 	# On applique le volume au bus Master
 	var bus_index = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(vol))
+	
+	if vol <= 0.001:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)

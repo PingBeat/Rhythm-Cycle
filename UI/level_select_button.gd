@@ -12,4 +12,4 @@ func _ready() -> void:
 func _pressed() -> void:
 	if is_unlocked:
 		Levelmanager.current_level = level
-		get_tree().call_deferred("change_scene_to_file", Levelmanager._load_level(level))
+		LoadingScreen.call_deferred("change_scene", Levelmanager._load_level(level))

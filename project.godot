@@ -22,6 +22,7 @@ config/icon="res://Assets/Images/icon.svg"
 [autoload]
 
 Levelmanager="*res://Autoloads/levelmanager.gd"
+LoadingScreen="*res://Autoloads/loading_screen.tscn"
 
 [input]
 
