@@ -75,6 +75,7 @@ Police d'écriture : [Nom de la police]
 ...
 
 [/center]"
+fit_content = true
 scroll_active = false
 
 [connection signal="pressed" from="BoutonRetour" to="." method="_on_bouton_retour_pressed"]
