@@ -19,3 +19,25 @@ func _on_bouton_suivant_pressed() -> void:
 		LoadingScreen.change_scene(level_to_load)
 	else:
 		LoadingScreen.change_scene("res://UI/main_menu.tscn")
+		
+func _on_bouton_retour_mouse_entered():
+	$"Panel/HBoxContainer/Menu-Button".modulate = Color("b2b2b2ff") 
+	$"Panel/HBoxContainer/Retry-Button".modulate = Color("b2b2b2ff") 
+	$"Panel/HBoxContainer/Play-Button".modulate = Color("b2b2b2ff") 
+
+func _on_bouton_retour_mouse_exited():
+	$"Panel/HBoxContainer/Menu-Button".modulate = Color("ffffffff")
+	$"Panel/HBoxContainer/Play-Button".modulate = Color("ffffffff")
+	$"Panel/HBoxContainer/Retry-Button".modulate = Color("ffffffff")
+
+
+func _on_menu_button_pressed() -> void:
+	LoadingScreen.change_scene("res://UI/select_level.tscn")
+
+
+func _on_play_button_pressed() -> void:
+	LoadingScreen.change_scene("res://Levels/2.tscn")
+
+
+func _on_retry_button_pressed() -> void:
+		LoadingScreen.change_scene("res://Levels/game.tscn")
