@@ -1,6 +1,6 @@
 extends Control
 
-@onready var label_score: Label = $VBoxContainer/ScoreFinal
+@onready var label_score: Label = $Panel/VBoxContainer/Score
 
 func afficher_resultats(score_du_joueur: int):
 	label_score.text = "Niveau Terminé !\nScore : " + str(score_du_joueur)
