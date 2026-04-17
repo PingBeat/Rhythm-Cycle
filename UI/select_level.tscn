@@ -1,49 +1,190 @@
-[gd_scene format=3 uid="uid://fcq26a508337"]
+[gd_scene load_steps=11 format=3 uid="uid://fcq26a508337"]
 
-[ext_resource type="PackedScene" uid="uid://cyup2deka7pi3" path="res://UI/level_select_button.tscn" id="3_vf7qe"]
+[ext_resource type="Script" path="res://UI/select_level.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cwepa6b6bq21e" path="res://Assets/Images/selection_menu.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://cg7a33cihmp5u" path="res://Assets/Images/Beach_level.png" id="3_beach"]
+[ext_resource type="Texture2D" uid="uid://qv31i0rktpin" path="res://Assets/Images/Bouton/Return-Button.svg" id="4_ret"]
+[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="5_set"]
+[ext_resource type="Theme" uid="uid://dotpdgm6s3adh" path="res://ThemePrincipal.tres" id="1h2g3"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k1y7s"]
-load_path = "res://.godot/imported/Le-Majordome-film-banniere-850x478.jpg-4c61a0fa071fa699ce979a875d301326.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Btn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62unk"]
-texture = SubResource("CompressedTexture2D_k1y7s")
-modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Hover"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
-[node name="SelectLevel" type="Node2D" unique_id=183845975]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Lbl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
-[node name="Panel" type="Panel" parent="." unique_id=1152497191]
-visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_62unk")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_Transp"]
 
-[node name="Label" type="Label" parent="." unique_id=1477036638]
-offset_right = 1152.0
-offset_bottom = 184.0
-theme_override_font_sizes/font_size = 160
-text = "LEVEL SELECT"
+[node name="SelectLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1h2g3")
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TVContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelsBox" type="VBoxContainer" parent="TVContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="OfficeCycleButton" type="Button" parent="TVContainer/LevelsBox"]
+custom_minimum_size = Vector2(700, 110)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/icon_max_width = 150
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_Btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Transp")
+text = "    Office-Cycle"
+icon = ExtResource("3_beach")
+alignment = 0
+expand_icon = true
+
+[node name="BeachCycleButton" type="Button" parent="TVContainer/LevelsBox"]
+custom_minimum_size = Vector2(700, 110)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/icon_max_width = 150
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_Btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Transp")
+text = "    Beach-Cycle"
+icon = ExtResource("3_beach")
+alignment = 0
+expand_icon = true
+
+[node name="CoffeeCycleButton" type="Button" parent="TVContainer/LevelsBox"]
+custom_minimum_size = Vector2(700, 110)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/icon_max_width = 150
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_Btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_Hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Transp")
+text = "    Coffee-Cycle"
+icon = ExtResource("3_beach")
+alignment = 0
+expand_icon = true
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="RetourBox" type="VBoxContainer" parent="BottomBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnRetour" type="Button" parent="BottomBar/RetourBox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Transp")
+icon = ExtResource("4_ret")
+expand_icon = true
+
+[node name="Label" type="Label" parent="BottomBar/RetourBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_Lbl")
+text = "Retour"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1491327000]
-offset_top = 220.0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=550059701]
+[node name="SettingsBox" type="VBoxContainer" parent="BottomBar"]
 layout_mode = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 4
+alignment = 1
 
-[node name="LevelSelectButton" parent="CenterContainer/GridContainer" unique_id=804741010 instance=ExtResource("3_vf7qe")]
+[node name="BtnSettings" type="Button" parent="BottomBar/SettingsBox"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_Transp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Transp")
+icon = ExtResource("5_set")
+expand_icon = true
 
-[node name="LevelSelectButton2" parent="CenterContainer/GridContainer" unique_id=192998579 instance=ExtResource("3_vf7qe")]
+[node name="Label" type="Label" parent="BottomBar/SettingsBox"]
 layout_mode = 2
-
-[node name="LevelSelectButton3" parent="CenterContainer/GridContainer" unique_id=720747308 instance=ExtResource("3_vf7qe")]
-layout_mode = 2
-
-[node name="LevelSelectButton4" parent="CenterContainer/GridContainer" unique_id=515330974 instance=ExtResource("3_vf7qe")]
-layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_Lbl")
+text = "Paramètres"
+horizontal_alignment = 1
