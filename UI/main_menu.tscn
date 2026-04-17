@@ -116,7 +116,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_cafmx")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Exit"
+text = "Quitter"
 horizontal_alignment = 1
 
 [node name="BlocPlay" type="VBoxContainer" parent="HBoxContainer" unique_id=32517878]
@@ -138,7 +138,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_cafmx")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Play"
+text = "Jouer"
 horizontal_alignment = 1
 
 [node name="BlocOptions" type="VBoxContainer" parent="HBoxContainer" unique_id=1754860238]
@@ -160,7 +160,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_cafmx")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Options"
+text = "Paramètres"
 horizontal_alignment = 1
 
 [node name="LabelTitle" type="Label" parent="." unique_id=260524797]
@@ -214,7 +214,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
-text = "Credits"
+text = "Crédits"
 
 [connection signal="pressed" from="HBoxContainer/BlocExit/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="HBoxContainer/BlocPlay/Play" to="." method="_on_play_pressed"]
