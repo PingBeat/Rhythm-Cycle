@@ -10,8 +10,11 @@ func _unlock_level(level_to_unlock: int) -> void:
 
 func _load_level(level_to_load: int) -> String:
 	if level_to_load > max_level:
-		return ""
-	return str("res://Levels/game.tscn")
+		return "" # Plus de niveaux, on retournera au menu
+		
+	# On convertit le numéro du niveau en texte pour créer le chemin
+	# Exemple: si level_to_load est 2, ça donnera "res://Levels/2.tscn"
+	return "res://Levels/" + str(level_to_load) + ".tscn"
 
 var save_path = "user://settings.cfg"
 var config = ConfigFile.new()
