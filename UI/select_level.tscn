@@ -44,6 +44,3 @@ layout_mode = 2
 
 [node name="LevelSelectButton3" parent="CenterContainer/GridContainer" unique_id=720747308 instance=ExtResource("3_vf7qe")]
 layout_mode = 2
-
-[node name="LevelSelectButton4" parent="CenterContainer/GridContainer" unique_id=515330974 instance=ExtResource("3_vf7qe")]
-layout_mode = 2
