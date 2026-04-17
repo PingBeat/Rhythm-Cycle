@@ -94,12 +94,18 @@ func _on_conductor_beat_signal(_position: Variant) -> void:
 
 
 func _on_conductor_finished() -> void:
-	var menu_fin = FINISH_MENU.instantiate()
+	#On sauvegarde d'abord les scores dans le Levelmanager
+	Levelmanager.dernier_score = score
+	if score > Levelmanager.meilleur_score:
+		Levelmanager.meilleur_score = score
+	#On crée la "vitre" (CanvasLayer) pour superposer le menu
 	var canvas = CanvasLayer.new()
 	canvas.layer = 100
+	var menu_fin = FINISH_MENU.instantiate()
+	#On colle le menu sur la vitre et la vitre dans le jeu
 	canvas.add_child(menu_fin)
 	add_child(canvas)
-	menu_fin.afficher_resultats(score)
+	#On met le jeu en pause en arrière-plan
 	get_tree().paused = true
 
 func _on_options_pressed() -> void:

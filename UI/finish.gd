@@ -1,10 +1,13 @@
 extends Control
 
-@onready var label_score: Label = $Panel/VBoxContainer/Score
+@onready var label_score_actuel = $Panel/VBoxContainer/Score
+@onready var label_meilleur_score = $Panel/VBoxContainer/BestScore
 
-func afficher_resultats(score_du_joueur: int):
-	label_score.text = "Niveau Terminé !\nScore : " + str(score_du_joueur)
+func _ready():
+	label_score_actuel.text = "Score : " + str(Levelmanager.dernier_score) + " points"
+	label_meilleur_score.text = "Meilleur Score : " + str(Levelmanager.meilleur_score) + " points"
 	Levelmanager._unlock_level(Levelmanager.current_level + 1)
+	
 
 #func _on_bouton_menu_pressed() -> void:
 	#get_tree().paused = false
