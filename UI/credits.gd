@@ -12,3 +12,10 @@ func _process(delta: float):
 
 func _on_bouton_retour_pressed():
 	LoadingScreen.change_scene("res://UI/main_menu.tscn")
+
+
+func _on_bouton_retour_mouse_entered():
+	$BoutonRetour.modulate = Color("b2b2b2ff") 
+
+func _on_bouton_retour_mouse_exited():
+	$BoutonRetour.modulate = Color("ffffffff")

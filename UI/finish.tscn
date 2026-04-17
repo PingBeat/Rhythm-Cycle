@@ -1,8 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7obyj3y1orww"]
+[gd_scene format=3 uid="uid://b7obyj3y1orww"]
 
 [ext_resource type="Script" uid="uid://bshi8hq4n0by2" path="res://UI/finish.gd" id="1_khvnr"]
+[ext_resource type="FontFile" uid="uid://6lcof71qlnfo" path="res://Assets/Texte/Inter_Tight/static/InterTight-ExtraBold.ttf" id="2_7ouvx"]
+[ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="3_i4hac"]
+[ext_resource type="FontFile" uid="uid://c7vfauxluqjwf" path="res://Assets/Texte/Inter_Tight/static/InterTight-SemiBoldItalic.ttf" id="4_4huiy"]
+[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="5_66pv5"]
+[ext_resource type="Texture2D" uid="uid://cfwaclhpkye4w" path="res://Assets/Images/Bouton/Play-Button.svg" id="6_tkpos"]
+[ext_resource type="Texture2D" uid="uid://dq4urv01uyhm0" path="res://Assets/Images/Bouton/Retry-Button.svg" id="7_8a65m"]
 
-[node name="FinishMenu" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhbc3"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrcws"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+shadow_size = 1
+shadow_offset = Vector2(4, -2)
+
+[node name="FinishMenu" type="Control" unique_id=1214162262]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,66 +37,153 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_khvnr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="." unique_id=2061085547]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.5882353)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=196813708]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.25
-offset_top = -65.25
-offset_right = 113.25
-offset_bottom = 65.25
+offset_left = -373.09912
+offset_top = -251.92325
+offset_right = 373.09912
+offset_bottom = 251.92325
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+scale = Vector2(0.8787628, 1.0139323)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qhbc3")
 
-[node name="ScoreFinal" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=60794754]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.12051
+offset_top = 30.498333
+offset_right = 252.87952
+offset_bottom = 330.49832
+grow_horizontal = 2
+theme_override_constants/separation = 26
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=1607925657]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "Score : 0"
+theme_override_fonts/font = ExtResource("2_7ouvx")
+theme_override_font_sizes/font_size = 60
+text = "Niveau Terminé"
 horizontal_alignment = 1
 
-[node name="Conseil" type="Label" parent="VBoxContainer"]
+[node name="Score" type="Label" parent="Panel/VBoxContainer" unique_id=2077032962]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Faire le tri selectif"
+theme_override_fonts/font = ExtResource("3_i4hac")
+theme_override_font_sizes/font_size = 40
+text = "Score : 0 points"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="BestScore" type="Label" parent="Panel/VBoxContainer" unique_id=52626638]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i4hac")
+theme_override_font_sizes/font_size = 40
+text = "Meilleur Score : 0 points"
+horizontal_alignment = 1
+
+[node name="Conseil" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=1412324923]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_4huiy")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Faire le tri selectif[/center]"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1404475632]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -240.0
-offset_right = 192.0
-offset_bottom = -200.0
+offset_left = -241.58612
+offset_top = -150.53632
+offset_right = 446.41388
+offset_bottom = -50.536316
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.0635047, 0.9447028)
 theme_override_constants/separation = 77
 
-[node name="BoutonMenu" type="Button" parent="HBoxContainer"]
+[node name="Menu-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=2118876629]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Menu Principal"
+texture_normal = ExtResource("5_66pv5")
+texture_pressed = ExtResource("5_66pv5")
+texture_hover = ExtResource("5_66pv5")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="BoutonSuivant" type="Button" parent="HBoxContainer"]
+[node name="Menu" type="Label" parent="Panel/HBoxContainer/Menu-Button" unique_id=1469403620]
+layout_mode = 0
+offset_left = -7.490079
+offset_top = 105.4428
+offset_right = 103.50992
+offset_bottom = 144.44281
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4hac")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
+text = "Niveaux"
+
+[node name="Play-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=800449966]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Niveau Suivant"
+texture_normal = ExtResource("6_tkpos")
+texture_pressed = ExtResource("6_tkpos")
+texture_hover = ExtResource("6_tkpos")
+ignore_texture_size = true
+stretch_mode = 5
 
-[connection signal="pressed" from="HBoxContainer/BoutonMenu" to="." method="_on_bouton_menu_pressed"]
-[connection signal="pressed" from="HBoxContainer/BoutonSuivant" to="." method="_on_bouton_suivant_pressed"]
+[node name="Play" type="Label" parent="Panel/HBoxContainer/Play-Button" unique_id=1152068769]
+layout_mode = 0
+offset_left = -2.5878944
+offset_top = 105.442795
+offset_right = 99.41211
+offset_bottom = 144.4428
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4hac")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
+text = "Suivant"
+
+[node name="Retry-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=1202370744]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("7_8a65m")
+texture_pressed = ExtResource("7_8a65m")
+texture_hover = ExtResource("7_8a65m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Retry" type="Label" parent="Panel/HBoxContainer/Retry-Button" unique_id=1973434670]
+layout_mode = 0
+offset_left = -13.735931
+offset_top = 105.4428
+offset_right = 128.26407
+offset_bottom = 144.44281
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4hac")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
+text = "Réessayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/Menu-Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Play-Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Retry-Button" to="." method="_on_retry_button_pressed"]

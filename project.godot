@@ -24,6 +24,10 @@ config/icon="res://Assets/Images/icon.svg"
 Levelmanager="*res://Autoloads/levelmanager.gd"
 LoadingScreen="*res://Autoloads/loading_screen.tscn"
 
+[gui]
+
+theme/custom="uid://dotpdgm6s3adh"
+
 [input]
 
 bleu={

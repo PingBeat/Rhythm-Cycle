@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cep3pr4x2ipt8" path="res://UI/credits.gd" id="1_s6k4m"]
 [ext_resource type="FontFile" uid="uid://ctcalt54s23bx" path="res://Assets/Texte/Inter_Tight/InterTight-VariableFont_wght.ttf" id="2_6m0of"]
+[ext_resource type="Texture2D" uid="uid://qv31i0rktpin" path="res://Assets/Images/Bouton/Return-Button.svg" id="2_ur1mf"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="3_57x34"]
 [ext_resource type="FontFile" uid="uid://dqeimael15oud" path="res://Assets/Texte/Inter_Tight/static/InterTight-BoldItalic.ttf" id="4_ur1mf"]
 [ext_resource type="FontFile" uid="uid://0yctpiywev26" path="res://Assets/Texte/Inter_Tight/static/InterTight-Italic.ttf" id="5_tiksb"]
@@ -24,21 +25,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.056291588, 0.056291603, 0.056291595, 1)
 
-[node name="BoutonRetour" type="Button" parent="." unique_id=2144844025]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 585.0
-offset_right = 153.0
-offset_bottom = 634.0
-text = "Retour au menu"
+[node name="BoutonRetour" type="TextureButton" parent="." unique_id=429962553]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 156.0
+grow_vertical = 0
+texture_normal = ExtResource("2_ur1mf")
+texture_pressed = ExtResource("2_ur1mf")
+texture_hover = ExtResource("2_ur1mf")
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=855414684]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -435.0
+offset_bottom = 435.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_6m0of")
 theme_override_fonts/bold_font = ExtResource("3_57x34")
 theme_override_fonts/bold_italics_font = ExtResource("4_ur1mf")
@@ -51,7 +62,7 @@ text = "[center]
 [b]Chef de Projet [/b]
 EL ARAARI Maelys
 
-[b Lead Développeur [/b]
+[b] Lead Développeur [/b]
 AUBERT Lily 
 
 [b] Développeurs [/b]
@@ -75,6 +86,9 @@ Police d'écriture : [Nom de la police]
 ...
 
 [/center]"
+fit_content = true
 scroll_active = false
 
+[connection signal="mouse_entered" from="BoutonRetour" to="." method="_on_bouton_retour_mouse_entered"]
+[connection signal="mouse_exited" from="BoutonRetour" to="." method="_on_bouton_retour_mouse_exited"]
 [connection signal="pressed" from="BoutonRetour" to="." method="_on_bouton_retour_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xnmaw13d2kw6"
-path="res://.godot/imported/Le-Majordome-film-banniere-850x478.jpg-4c61a0fa071fa699ce979a875d301326.ctex"
+uid="uid://brma0kxk7pvab"
+path="res://.godot/imported/Settings-Button.svg-30004e198f40d8dbc1b10daf8df00073.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Le-Majordome-film-banniere-850x478.jpg"
-dest_files=["res://.godot/imported/Le-Majordome-film-banniere-850x478.jpg-4c61a0fa071fa699ce979a875d301326.ctex"]
+source_file="res://Assets/Images/Bouton/Settings-Button.svg"
+dest_files=["res://.godot/imported/Settings-Button.svg-30004e198f40d8dbc1b10daf8df00073.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
