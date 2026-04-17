@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	LoadingScreen.change_scene("res://UI/select_level.tscn")
+	pass
 
 
 func _on_options_pressed() -> void:
@@ -54,4 +54,4 @@ func _on_bouton_retour_mouse_exited():
 
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
+	LoadingScreen.change_scene("res://UI/select_level.tscn")
