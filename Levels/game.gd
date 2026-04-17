@@ -11,8 +11,8 @@ const FINISH_MENU = preload("res://UI/finish.tscn")
 
 var score = 0
 var combo = 1
-@onready var score_label: RichTextLabel = $scoreLabel
-@onready var combo_label: RichTextLabel = $comboLabel
+@onready var score_label: RichTextLabel = $FondScore/scoreLabel
+@onready var combo_label: RichTextLabel = $FondScore/comboLabel
 
 var note = preload("res://Gameplay/note.tscn")
 var rng = RandomNumberGenerator.new()
@@ -101,3 +101,13 @@ func _on_conductor_finished() -> void:
 	add_child(canvas)
 	menu_fin.afficher_resultats(score)
 	get_tree().paused = true
+
+func _on_options_pressed() -> void:
+	LoadingScreen.change_scene("res://UI/menu_settings.tscn")
+
+func _on_options_mouse_entered() -> void:
+	$Options.modulate = Color("b2b2b2ff") 
+
+
+func _on_options_mouse_exited() -> void:
+	$Options.modulate = Color("ffffffff")

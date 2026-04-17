@@ -18,8 +18,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_color = Color(0.20871013, 0.20871016, 0.20871013, 0.6)
-shadow_size = 2
+shadow_color = Color(0.40069774, 0.40069768, 0.40069783, 0.6)
+shadow_size = 1
 shadow_offset = Vector2(4, -2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
@@ -28,7 +28,7 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_color = Color(0.29219002, 0.29219005, 0.29219002, 0.6)
+shadow_color = Color(0.41598046, 0.41598043, 0.4159804, 0.6)
 shadow_size = 1
 shadow_offset = Vector2(4, -2)
 
