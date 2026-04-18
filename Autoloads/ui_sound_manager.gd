@@ -6,11 +6,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # Pour que le son marche même quand le jeu est en pause
 	click_player = AudioStreamPlayer.new()
 
-	var sound_path = "res://Assets/Audio/click.wav"
-	if ResourceLoader.exists(sound_path):
-		click_player.stream = load(sound_path)
-	else:
-		print("UISoundManager: fichier son introuvable ici -> ", sound_path)
+	# preload() est obligatoire ici, sinon Godot n'emballe pas le fichier dans le .exe
+	click_player.stream = preload("res://Assets/Audio/click.wav")
 		
 	add_child(click_player)
 	

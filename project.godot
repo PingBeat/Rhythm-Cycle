@@ -25,6 +25,11 @@ Levelmanager="*res://Autoloads/levelmanager.gd"
 LoadingScreen="*res://Autoloads/loading_screen.tscn"
 UISoundManager="*res://Autoloads/ui_sound_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [gui]
 
 theme/custom="uid://dotpdgm6s3adh"
