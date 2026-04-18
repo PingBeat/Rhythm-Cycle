@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2m0nqlwnlnfv"
-path="res://.godot/imported/notes_cafe.png-825039173173df7db0c8b2ab747ca29c.ctex"
+uid="uid://63ewojenbear"
+path="res://.godot/imported/Le-Majordome-film-banniere-850x478.jpg-4c61a0fa071fa699ce979a875d301326.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/notes_cafe.png"
-dest_files=["res://.godot/imported/notes_cafe.png-825039173173df7db0c8b2ab747ca29c.ctex"]
+source_file="res://Assets/Images/Le-Majordome-film-banniere-850x478.jpg"
+dest_files=["res://.godot/imported/Le-Majordome-film-banniere-850x478.jpg-4c61a0fa071fa699ce979a875d301326.ctex"]
 
 [params]
 

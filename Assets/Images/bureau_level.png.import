@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2m0nqlwnlnfv"
-path="res://.godot/imported/notes_cafe.png-825039173173df7db0c8b2ab747ca29c.ctex"
+uid="uid://bmi8r0hgi3tt2"
+path="res://.godot/imported/bureau_level.png-bbf1a2e99427cf6a40af9e77f9f16d40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/notes_cafe.png"
-dest_files=["res://.godot/imported/notes_cafe.png-825039173173df7db0c8b2ab747ca29c.ctex"]
+source_file="res://Assets/Images/bureau_level.png"
+dest_files=["res://.godot/imported/bureau_level.png-bbf1a2e99427cf6a40af9e77f9f16d40.ctex"]
 
 [params]
 
