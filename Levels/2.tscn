@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8lcjrghbewwu"]
 
-[ext_resource type="Script" uid="uid://dhomsaastduxs" path="res://Levels/1.gd" id="1_rbgk5"]
+[ext_resource type="Script" uid="uid://dhomsaastduxs" path="res://Levels/game.gd" id="1_rbgk5"]
 [ext_resource type="Texture2D" uid="uid://bmi8r0hgi3tt2" path="res://Assets/Images/bureau_level.png" id="2_rbgk5"]
 [ext_resource type="PackedScene" uid="uid://cn36rhh8mch1p" path="res://Gameplay/key.tscn" id="3_orowq"]
 [ext_resource type="Texture2D" uid="uid://cyiefwd4y7mlt" path="res://Assets/Images/poubelle_bleue.png" id="4_dgfda"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_0152w"]
 [ext_resource type="AudioStream" uid="uid://b0otl6kx3nvc7" path="res://Assets/Audio/Office-Cycle.mp3" id="9_6gx4j"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_0xkbw"]
-[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_x370a"]
+[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="11_x370a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
 atlas = ExtResource("4_dgfda")

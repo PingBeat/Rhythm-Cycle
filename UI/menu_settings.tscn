@@ -1,33 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://but30trballme"]
+[gd_scene load_steps=12 format=3 uid="uid://but30trballme"]
 
-[ext_resource type="Script" uid="uid://isbt87hhldcu" path="res://UI/menu_settings.gd" id="1_in203"]
-[ext_resource type="Texture2D" uid="uid://k864y1bu15wi" path="res://Assets/Images/unnamed.jpg" id="2_gjw66"]
+[ext_resource type="Script" path="res://UI/menu_settings.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cwepa6b6bq21e" path="res://Assets/Images/selection_menu.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://dyxgtysq7qija" path="res://Assets/Images/Bouton/Cross-Button.svg" id="3_cross"]
+[ext_resource type="Texture2D" uid="uid://5ypfkvmg1f4n" path="res://Assets/Images/Bouton/Check-Button.svg" id="4_check"]
+[ext_resource type="Theme" uid="uid://dotpdgm6s3adh" path="res://ThemePrincipal.tres" id="5_theme"]
+[ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="6_font"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mh2mw"]
-bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 10
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_TV"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1, 0.1, 0.1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuwfy"]
-bg_color = Color(0.29803923, 0.6862745, 0.3137255, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_CircleGreen"]
+bg_color = Color(0.32, 0.61, 0.43, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674b8"]
-bg_color = Color(0.27450982, 1, 0.15294118, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnLabel"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo024"]
-bg_color = Color(0.23530415, 0.30512348, 1.92523e-07, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_Focus"]
 
 [node name="MenuSettings" type="Control"]
 process_mode = 3
@@ -37,97 +50,232 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_in203")
+mouse_filter = 2
+theme = ExtResource("5_theme")
+script = ExtResource("1_script")
 
 [node name="FondGris" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.9019608)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_gjw66")
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
 stretch_mode = 6
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="TVColor" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -127.5
-offset_top = -134.0
-offset_right = 127.5
-offset_bottom = 134.0
+offset_left = -225.0
+offset_top = -240.0
+offset_right = 225.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mh2mw")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_TV")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+[node name="TVContent" type="VBoxContainer" parent="TVColor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="BoitePrincipale" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="LabelTitle" type="Label" parent="TVColor/TVContent"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 50
+text = "Paramètres"
+horizontal_alignment = 1
 
-[node name="UniversalSettings" type="VBoxContainer" parent="PanelContainer/MarginContainer/BoitePrincipale"]
+[node name="UniversalSettings" type="VBoxContainer" parent="TVColor/TVContent"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 40
+
+[node name="VolumeRow" type="HBoxContainer" parent="TVColor/TVContent/UniversalSettings"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings"]
+[node name="Icon" type="Label" parent="TVColor/TVContent/UniversalSettings/VolumeRow"]
 layout_mode = 2
-text = "Volume"
+theme_override_font_sizes/font_size = 40
+text = "🔊"
 
-[node name="SliderVolume" type="HSlider" parent="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings"]
+[node name="SliderBox" type="VBoxContainer" parent="TVColor/TVContent/UniversalSettings/VolumeRow"]
 layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="SliderVolume" type="HSlider" parent="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 0
 max_value = 1.0
 step = 0.05
-value = 0.8
+value = 0.5
 
-[node name="CheckFullscreen" type="CheckBox" parent="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings"]
+[node name="ValueLabel" type="Label" parent="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox"]
 layout_mode = 2
-text = "Plein Écran"
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+text = "5"
+horizontal_alignment = 1
 
-[node name="BoutonRetour" type="Button" parent="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings"]
+[node name="FullscreenRow" type="HBoxContainer" parent="TVColor/TVContent/UniversalSettings"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_cuwfy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_674b8")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xo024")
-text = "Retour"
+mouse_filter = 2
+alignment = 1
+theme_override_constants/separation = 20
 
-[node name="PauseControls" type="HBoxContainer" parent="PanelContainer/MarginContainer/BoitePrincipale"]
+[node name="Label" type="Label" parent="TVColor/TVContent/UniversalSettings/FullscreenRow"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 28
+text = "Plein écran"
 
-[node name="BoutonRestart" type="Button" parent="PanelContainer/MarginContainer/BoitePrincipale/PauseControls"]
+[node name="CheckFullscreen" type="CheckBox" parent="TVColor/TVContent/UniversalSettings/FullscreenRow"]
 layout_mode = 2
-text = "Restart"
+mouse_filter = 0
+scale = Vector2(1.5, 1.5)
 
-[node name="BoutonExit" type="Button" parent="PanelContainer/MarginContainer/BoitePrincipale/PauseControls"]
+[node name="BottomControls" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -220.0
+offset_right = 200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="AnnulerBox" type="VBoxContainer" parent="BottomControls"]
 layout_mode = 2
-text = "Exit to Menu"
+mouse_filter = 2
+alignment = 1
+theme_override_constants/separation = 20
 
-[connection signal="value_changed" from="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings/SliderVolume" to="." method="_on_slider_volume_value_changed"]
-[connection signal="toggled" from="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/BoitePrincipale/UniversalSettings/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/BoitePrincipale/PauseControls/BoutonRestart" to="." method="_on_bouton_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/BoitePrincipale/PauseControls/BoutonExit" to="." method="_on_bouton_exit_pressed"]
+[node name="BoutonRetour" type="Button" parent="BottomControls/AnnulerBox"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/hover = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
+icon = ExtResource("3_cross")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="BottomControls/AnnulerBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
+text = "Annuler"
+horizontal_alignment = 1
+
+[node name="ValiderBox" type="VBoxContainer" parent="BottomControls"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="BoutonValider" type="Button" parent="BottomControls/ValiderBox"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/hover = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_CircleGreen")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
+icon = ExtResource("4_check")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="BottomControls/ValiderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
+text = "Valider"
+horizontal_alignment = 1
+
+[node name="PauseControls" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BoutonRestart" type="Button" parent="PauseControls"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
+text = "   Recommencer   "
+
+[node name="BoutonExit" type="Button" parent="PauseControls"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
+text = "   Quitter   "
+
+[connection signal="value_changed" from="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="toggled" from="TVColor/TVContent/UniversalSettings/FullscreenRow/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
+[connection signal="pressed" from="BottomControls/AnnulerBox/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
+[connection signal="pressed" from="BottomControls/ValiderBox/BoutonValider" to="." method="_on_bouton_valider_pressed"]
+[connection signal="pressed" from="PauseControls/BoutonRestart" to="." method="_on_bouton_restart_pressed"]
+[connection signal="pressed" from="PauseControls/BoutonExit" to="." method="_on_bouton_exit_pressed"]

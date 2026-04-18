@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_w4pr6"]
 [ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Garden-Cycle_v2.1.mp3" id="9_hpw18"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_lawk8"]
-[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_dl1jf"]
+[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="11_dl1jf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
 atlas = ExtResource("4_re52y")
