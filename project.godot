@@ -23,6 +23,7 @@ config/icon="res://Assets/Images/icon.svg"
 
 Levelmanager="*res://Autoloads/levelmanager.gd"
 LoadingScreen="*res://Autoloads/loading_screen.tscn"
+UISoundManager="*res://Autoloads/ui_sound_manager.gd"
 
 [gui]
 
