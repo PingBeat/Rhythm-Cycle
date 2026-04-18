@@ -71,4 +71,4 @@ func _on_bouton_restart_pressed() -> void:
 
 func _on_bouton_exit_pressed() -> void:
 	get_tree().paused = false
-	LoadingScreen.change_scene("res://UI/main_menu.tscn")
+	LoadingScreen.change_scene("res://UI/select_level.tscn")

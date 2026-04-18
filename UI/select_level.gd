@@ -7,18 +7,16 @@ extends Control
 @onready var btn_settings := $BottomBar/SettingsBox/BtnSettings
 
 func _ready() -> void:
-	# Connect level buttons
+	# Connect level button
 	office_btn.pressed.connect(_on_office_pressed)
-	beach_btn.pressed.connect(_on_beach_pressed)
-	coffee_btn.pressed.connect(_on_coffee_pressed)
 	
-	# Hover effects for level buttons
+	# Hover effects for level button
 	office_btn.mouse_entered.connect(_on_button_hover.bind(office_btn))
 	office_btn.mouse_exited.connect(_on_button_exit.bind(office_btn))
-	beach_btn.mouse_entered.connect(_on_button_hover.bind(beach_btn))
-	beach_btn.mouse_exited.connect(_on_button_exit.bind(beach_btn))
-	coffee_btn.mouse_entered.connect(_on_button_hover.bind(coffee_btn))
-	coffee_btn.mouse_exited.connect(_on_button_exit.bind(coffee_btn))
+
+	# Disable unimplemented levels
+	beach_btn.disabled = true
+	coffee_btn.disabled = true
 
 	# Connect bottom bar buttons
 	btn_retour.pressed.connect(_on_retour_pressed)

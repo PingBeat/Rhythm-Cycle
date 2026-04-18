@@ -47,21 +47,19 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("marron"):
 		bouton_marron.frame = 1
 
+func _pause_game() -> void:
+	if not has_node("MenuSettingsCanvas"):
+		var canvas = CanvasLayer.new()
+		canvas.name = "MenuSettingsCanvas"
+		canvas.layer = 100
+		var menu = MENU_SETTINGS.instantiate()
+		canvas.add_child(menu)
+		add_child(canvas)
+		get_tree().paused = true
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		# On vérifie si notre "vitre" (Canvas) existe déjà
-		if not has_node("MenuSettingsCanvas"):
-			# 1. On crée le CanvasLayer (la vitre)
-			var canvas = CanvasLayer.new()
-			canvas.name = "MenuSettingsCanvas"
-			canvas.layer = 100 # On s'assure que ça passe par-dessus tout ton décor
-			# 2. On charge ton menu
-			var menu = MENU_SETTINGS.instantiate()
-			# 3. On colle le menu sur la vitre, puis on met la vitre dans le jeu
-			canvas.add_child(menu)
-			add_child(canvas)
-			# 4. On fige le jeu
-			get_tree().paused = true
+		_pause_game()
 
 func increaseScore(value):
 	if value == 0:
@@ -103,7 +101,7 @@ func _on_conductor_finished() -> void:
 	get_tree().paused = true
 
 func _on_options_pressed() -> void:
-	LoadingScreen.change_scene("res://UI/menu_settings.tscn")
+	_pause_game()
 
 func _on_options_mouse_entered() -> void:
 	$Options.modulate = Color("b2b2b2ff") 
