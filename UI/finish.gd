@@ -1,41 +1,61 @@
 extends Control
 
-@onready var label_score_actuel = $Panel/VBoxContainer/Score
-@onready var label_meilleur_score = $Panel/VBoxContainer/BestScore
+# On récupère les labels de score
+@onready var score_label = $Panel/VBoxContainer/Score
+@onready var best_score_label = $Panel/VBoxContainer/BestScore
 
-func _ready():
-	label_score_actuel.text = "Score : " + str(Levelmanager.dernier_score) + " points"
-	label_meilleur_score.text = "Meilleur Score : " + str(Levelmanager.meilleur_score) + " points"
-	Levelmanager._unlock_level(Levelmanager.current_level + 1)
+# On récupère les boutons (les "TextureButton" qui ont les signaux)
+@onready var btn_menu = $"Panel/HBoxContainer/BoxNiv/Menu-Button"
+@onready var btn_suivant = $"Panel/HBoxContainer/BoxSuivant/Play-Button"
+@onready var btn_retry = $"Panel/HBoxContainer/BoxRetry/Retry-Button"
+
+func _ready() -> void:
+	# 1. On affiche le score qu'on vient de faire
+	score_label.text = "Score : " + str(Levelmanager.dernier_score) + " points"
 	
-func _on_bouton_retour_mouse_entered():
-	$"Panel/HBoxContainer/Menu-Button".modulate = Color("b2b2b2ff") 
-	$"Panel/HBoxContainer/Retry-Button".modulate = Color("b2b2b2ff") 
-	$"Panel/HBoxContainer/Play-Button".modulate = Color("b2b2b2ff") 
+	# 2. On affiche le meilleur score du niveau actuel
+	var niveau_actuel = Levelmanager.current_level
+	var record = Levelmanager.meilleurs_scores[niveau_actuel]
+	best_score_label.text = "Meilleur Score : " + str(record) + " points"
 
-func _on_bouton_retour_mouse_exited():
-	$"Panel/HBoxContainer/Menu-Button".modulate = Color("ffffffff")
-	$"Panel/HBoxContainer/Play-Button".modulate = Color("ffffffff")
-	$"Panel/HBoxContainer/Retry-Button".modulate = Color("ffffffff")
-
+# --- LOGIQUE DES BOUTONS ---
 
 func _on_menu_button_pressed() -> void:
-	LoadingScreen.change_scene("res://UI/select_level.tscn")
-
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://UI/select_level.tscn")
 
 func _on_play_button_pressed() -> void:
 	get_tree().paused = false
+	# On passe au niveau suivant
 	Levelmanager.current_level += 1
-
-	var level_to_load = Levelmanager._load_level(Levelmanager.current_level)
-	if level_to_load != "":
-		LoadingScreen.change_scene(level_to_load)
+	if Levelmanager.current_level > Levelmanager.max_level:
+		get_tree().change_scene_to_file("res://UI/main_menu.tscn")
 	else:
-		LoadingScreen.change_scene("res://UI/main_menu.tscn")
-
+		get_tree().reload_current_scene()
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
-	# On recharge le niveau en cours sans l'augmenter
-	var current_level_path = Levelmanager._load_level(Levelmanager.current_level)
-	LoadingScreen.change_scene(current_level_path)
+	get_tree().reload_current_scene()
+
+# --- EFFETS DE SURVOL (HOVER) ---
+
+# Pour le bouton Menu (Niveaux)
+func _on_menu_button_mouse_entered() -> void:
+	btn_menu.modulate = Color("b2b2b2ff")
+
+func _on_menu_button_mouse_exited() -> void:
+	btn_menu.modulate = Color("ffffffff")
+
+# Pour le bouton Suivant
+func _on_play_button_mouse_entered() -> void:
+	btn_suivant.modulate = Color("b2b2b2ff")
+
+func _on_play_button_mouse_exited() -> void:
+	btn_suivant.modulate = Color("ffffffff")
+
+# Pour le bouton Réessayer
+func _on_retry_button_mouse_entered() -> void:
+	btn_retry.modulate = Color("b2b2b2ff")
+
+func _on_retry_button_mouse_exited() -> void:
+	btn_retry.modulate = Color("ffffffff")
