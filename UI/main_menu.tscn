@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="6_cafmx"]
 [ext_resource type="FontFile" uid="uid://cojdh60agtdqp" path="res://Assets/Texte/Inter_Tight/static/InterTight-Black.ttf" id="6_ev3b6"]
 [ext_resource type="FontFile" uid="uid://c7vfauxluqjwf" path="res://Assets/Texte/Inter_Tight/static/InterTight-SemiBoldItalic.ttf" id="7_k0a0m"]
+[ext_resource type="AudioStream" uid="uid://vqhofwg0y3t7" path="res://Assets/Audio/Rhythm-Cycle-Menu.mp3" id="9_2mudq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
 content_margin_bottom = 0.0
@@ -200,6 +201,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
 text = "Crédits"
+
+[node name="MusiqueMenu" type="AudioStreamPlayer" parent="." unique_id=1987685996]
+stream = ExtResource("9_2mudq")
+autoplay = true
+parameters/looping = true
 
 [connection signal="mouse_entered" from="BlocExit/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="mouse_exited" from="BlocExit/Exit" to="." method="_on_exit_mouse_exited"]

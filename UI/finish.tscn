@@ -181,6 +181,12 @@ text = "Réessayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="mouse_entered" from="Panel/HBoxContainer/BoxNiv/Menu-Button" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/HBoxContainer/BoxNiv/Menu-Button" to="." method="_on_menu_button_mouse_exited"]
 [connection signal="pressed" from="Panel/HBoxContainer/BoxNiv/Menu-Button" to="." method="_on_menu_button_pressed"]
+[connection signal="mouse_entered" from="Panel/HBoxContainer/BoxSuivant/Play-Button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/HBoxContainer/BoxSuivant/Play-Button" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="Panel/HBoxContainer/BoxSuivant/Play-Button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="Panel/HBoxContainer/BoxRetry/Retry-Button" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/HBoxContainer/BoxRetry/Retry-Button" to="." method="_on_retry_button_mouse_exited"]
 [connection signal="pressed" from="Panel/HBoxContainer/BoxRetry/Retry-Button" to="." method="_on_retry_button_pressed"]

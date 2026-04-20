@@ -19,7 +19,6 @@ var rng = RandomNumberGenerator.new()
 
 @export var beatsBeforeStart: int
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bouton_bleu.frame = 1
 	bouton_jaune.frame = 1
@@ -27,8 +26,6 @@ func _ready() -> void:
 	bouton_marron.frame = 1
 	conductor.playWithBeatOffset(beatsBeforeStart)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("bleu"):
 		bouton_bleu.frame = 0
@@ -60,16 +57,20 @@ func _pause_game() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_pause_game()
+	
+	# --- RACCOURCI TRICHE (TOUCHE FIN) ---
+	if event.is_action_pressed("skip_level"):
+		conductor.stop() 
+		_on_conductor_finished()
 
 func increaseScore(value):
 	if value == 0:
 		combo = 1
-	else : 
+	else:
 		combo += 1
 	score = score + value * combo
 	score_label.text = str("Score: ", score)
 	combo_label.text = str("Combo x", combo)
-
 
 func _on_conductor_beat_signal(_position: Variant) -> void:
 	var lane = rng.randi_range(0,3)
@@ -87,31 +88,40 @@ func _on_conductor_beat_signal(_position: Variant) -> void:
 		noteinstance.global_position=bouton_vert.global_position
 		noteinstance.color = "vert"
 	noteinstance.global_position.y=-300
-	noteinstance.speed  = (280+300)/(conductor.secPerBeat * beatsBeforeStart)
+	noteinstance.speed = (280+300)/(conductor.secPerBeat * beatsBeforeStart)
 	add_child(noteinstance)
 
-
 func _on_conductor_finished() -> void:
-	#On sauvegarde d'abord les scores dans le Levelmanager
+	# 1. Sauvegarde du score actuel
 	Levelmanager.dernier_score = score
-	if score > Levelmanager.meilleur_score:
-		Levelmanager.meilleur_score = score
-	#On crée la "vitre" (CanvasLayer) pour superposer le menu
-	var canvas = CanvasLayer.new()
-	canvas.layer = 100
-	var menu_fin = FINISH_MENU.instantiate()
-	#On colle le menu sur la vitre et la vitre dans le jeu
-	canvas.add_child(menu_fin)
-	add_child(canvas)
-	#On met le jeu en pause en arrière-plan
-	get_tree().paused = true
+	
+	# 2. Mise à jour du record spécifique à ce niveau
+	var niveau_actuel = Levelmanager.current_level
+	if score > Levelmanager.meilleurs_scores[niveau_actuel]:
+		Levelmanager.meilleurs_scores[niveau_actuel] = score
+	
+	# 3. On note que ce niveau a été terminé (pour l'Easter Egg)
+	if not Levelmanager.niveaux_termines.has(niveau_actuel):
+		Levelmanager.niveaux_termines.append(niveau_actuel)
+	
+	# 4. Vérification de la fin du jeu (Niveau 3)
+	if niveau_actuel == 3:
+		Levelmanager.via_fin_de_jeu = true
+		get_tree().change_scene_to_file("res://UI/CreditsMenu.tscn")
+	else:
+		# Sinon, on affiche le menu de fin normal
+		var canvas = CanvasLayer.new()
+		canvas.layer = 100
+		var menu_fin = FINISH_MENU.instantiate()
+		canvas.add_child(menu_fin)
+		add_child(canvas)
+		get_tree().paused = true
 
 func _on_options_pressed() -> void:
 	_pause_game()
 
 func _on_options_mouse_entered() -> void:
 	$Options.modulate = Color("b2b2b2ff") 
-
 
 func _on_options_mouse_exited() -> void:
 	$Options.modulate = Color("ffffffff")

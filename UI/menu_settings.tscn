@@ -212,7 +212,6 @@ text = "Jouer"
 horizontal_alignment = 1
 
 [node name="InGameBox" type="HBoxContainer" parent="." unique_id=1867689194]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -268,7 +267,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_wgyuh")
-text = "Suivant"
+text = "Reprendre"
 
 [node name="BoxRetry" type="VBoxContainer" parent="InGameBox" unique_id=282628471]
 layout_mode = 2
@@ -295,13 +294,18 @@ vertical_alignment = 1
 
 [connection signal="value_changed" from="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="toggled" from="TVColor/TVContent/UniversalSettings/FullscreenRow/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
-[connection signal="mouse_entered" from="InMenu" to="." method="_on_in_menu_mouse_entered"]
-[connection signal="mouse_exited" from="InMenu" to="." method="_on_in_menu_mouse_exited"]
 [connection signal="mouse_entered" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_entered"]
 [connection signal="mouse_exited" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_exited"]
 [connection signal="pressed" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
 [connection signal="mouse_entered" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_mouse_entered"]
 [connection signal="mouse_exited" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_mouse_exited"]
 [connection signal="pressed" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_pressed"]
-[connection signal="mouse_entered" from="InGameBox" to="." method="_on_in_game_box_mouse_entered"]
-[connection signal="mouse_exited" from="InGameBox" to="." method="_on_in_game_box_mouse_exited"]
+[connection signal="mouse_entered" from="InGameBox/BoxNiv/Menu_Button" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="InGameBox/BoxNiv/Menu_Button" to="." method="_on_menu_button_mouse_exited"]
+[connection signal="pressed" from="InGameBox/BoxNiv/Menu_Button" to="." method="_on_menu_button_pressed"]
+[connection signal="mouse_entered" from="InGameBox/BoxSuivant/Play_Button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="InGameBox/BoxSuivant/Play_Button" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="InGameBox/BoxSuivant/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="InGameBox/BoxRetry/Retry_Button" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="mouse_exited" from="InGameBox/BoxRetry/Retry_Button" to="." method="_on_retry_button_mouse_exited"]
+[connection signal="pressed" from="InGameBox/BoxRetry/Retry_Button" to="." method="_on_retry_button_pressed"]
