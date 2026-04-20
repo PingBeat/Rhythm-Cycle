@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://dotpdgm6s3adh" path="res://ThemePrincipal.tres" id="5_theme"]
 [ext_resource type="Texture2D" uid="uid://cfwaclhpkye4w" path="res://Assets/Images/Bouton/Play-Button.svg" id="6_84l4u"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="6_font"]
+[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="7_25wlh"]
+[ext_resource type="Texture2D" uid="uid://dq4urv01uyhm0" path="res://Assets/Images/Bouton/Retry-Button.svg" id="8_78fv5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_TV"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -22,7 +24,15 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_Focus"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgyuh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
 
 [node name="MenuSettings" type="Control" unique_id=1991154689]
 process_mode = 3
@@ -143,17 +153,23 @@ text = "Plein écran"
 [node name="CheckFullscreen" type="CheckBox" parent="TVColor/TVContent/UniversalSettings/FullscreenRow" unique_id=1095151476]
 layout_mode = 2
 
-[node name="AnnulerBox" type="VBoxContainer" parent="." unique_id=1685496396]
+[node name="InMenu" type="HBoxContainer" parent="." unique_id=1693643954]
+visible = false
 layout_mode = 0
-offset_left = 414.6
-offset_top = 406.0
-offset_right = 488.6
-offset_bottom = 510.9943
+offset_left = -1.0
+offset_top = 403.0
+offset_right = 1150.0
+offset_bottom = 509.0
+theme_override_constants/separation = 230
+alignment = 1
+
+[node name="InMenuRetourBox" type="VBoxContainer" parent="InMenu" unique_id=1685496396]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="BoutonRetour" type="TextureButton" parent="AnnulerBox" unique_id=1939277623]
+[node name="BoutonRetour" type="TextureButton" parent="InMenu/InMenuRetourBox" unique_id=1939277623]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("5_jcve1")
@@ -162,7 +178,7 @@ texture_hover = ExtResource("5_jcve1")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="AnnulerBox" unique_id=1052765269]
+[node name="Label" type="Label" parent="InMenu/InMenuRetourBox" unique_id=1052765269]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_font")
@@ -171,17 +187,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
 text = "Retour"
 horizontal_alignment = 1
 
-[node name="ValiderBox" type="VBoxContainer" parent="." unique_id=493599925]
-layout_mode = 0
-offset_left = 534.6
-offset_top = 404.6
-offset_right = 599.6
-offset_bottom = 509.6
+[node name="InMenuLevelBox" type="VBoxContainer" parent="InMenu" unique_id=493599925]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="BoutonValider" type="TextureButton" parent="ValiderBox" unique_id=279477249]
+[node name="BoutonValider" type="TextureButton" parent="InMenu/InMenuLevelBox" unique_id=279477249]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("6_84l4u")
@@ -190,7 +202,7 @@ texture_hover = ExtResource("6_84l4u")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="ValiderBox" unique_id=1207243898]
+[node name="Label" type="Label" parent="InMenu/InMenuLevelBox" unique_id=1207243898]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_font")
@@ -199,45 +211,97 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
 text = "Jouer"
 horizontal_alignment = 1
 
-[node name="PauseControls" type="HBoxContainer" parent="." unique_id=278637177]
+[node name="InGameBox" type="HBoxContainer" parent="." unique_id=1867689194]
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 100.0
-offset_right = 250.0
-offset_bottom = 150.0
+anchor_bottom = 1.0
+offset_left = -573.0
+offset_top = -240.0
+offset_right = 575.0
+offset_bottom = -140.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 50
+grow_vertical = 0
+theme_override_constants/separation = 77
 alignment = 1
 
-[node name="BoutonRestart" type="Button" parent="PauseControls" unique_id=1464915502]
+[node name="BoxNiv" type="VBoxContainer" parent="InGameBox" unique_id=885217518]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_font")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
-text = "   Recommencer   "
+theme_override_constants/separation = 8
 
-[node name="BoutonExit" type="Button" parent="PauseControls" unique_id=44066411]
+[node name="Menu_Button" type="TextureButton" parent="InGameBox/BoxNiv" unique_id=733884287]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("7_25wlh")
+texture_pressed = ExtResource("7_25wlh")
+texture_hover = ExtResource("7_25wlh")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Menu" type="Label" parent="InGameBox/BoxNiv" unique_id=1988446968]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_font")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_BtnLabel")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_Focus")
-text = "   Quitter   "
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgyuh")
+text = "Niveaux"
+
+[node name="BoxSuivant" type="VBoxContainer" parent="InGameBox" unique_id=2080757251]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Play_Button" type="TextureButton" parent="InGameBox/BoxSuivant" unique_id=906914592]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("6_84l4u")
+texture_pressed = ExtResource("6_84l4u")
+texture_hover = ExtResource("6_84l4u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Play" type="Label" parent="InGameBox/BoxSuivant" unique_id=947042808]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgyuh")
+text = "Suivant"
+
+[node name="BoxRetry" type="VBoxContainer" parent="InGameBox" unique_id=282628471]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Retry_Button" type="TextureButton" parent="InGameBox/BoxRetry" unique_id=1120527119]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("8_78fv5")
+texture_pressed = ExtResource("8_78fv5")
+texture_hover = ExtResource("8_78fv5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Retry" type="Label" parent="InGameBox/BoxRetry" unique_id=520256955]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgyuh")
+text = "Réessayer"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="value_changed" from="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="toggled" from="TVColor/TVContent/UniversalSettings/FullscreenRow/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
-[connection signal="pressed" from="AnnulerBox/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
-[connection signal="pressed" from="ValiderBox/BoutonValider" to="." method="_on_bouton_valider_pressed"]
-[connection signal="pressed" from="PauseControls/BoutonRestart" to="." method="_on_bouton_restart_pressed"]
-[connection signal="pressed" from="PauseControls/BoutonExit" to="." method="_on_bouton_exit_pressed"]
+[connection signal="mouse_entered" from="InMenu" to="." method="_on_in_menu_mouse_entered"]
+[connection signal="mouse_exited" from="InMenu" to="." method="_on_in_menu_mouse_exited"]
+[connection signal="mouse_entered" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_entered"]
+[connection signal="mouse_exited" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_exited"]
+[connection signal="pressed" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
+[connection signal="mouse_entered" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_mouse_entered"]
+[connection signal="mouse_exited" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_mouse_exited"]
+[connection signal="pressed" from="InMenu/InMenuLevelBox/BoutonValider" to="." method="_on_bouton_valider_pressed"]
+[connection signal="mouse_entered" from="InGameBox" to="." method="_on_in_game_box_mouse_entered"]
+[connection signal="mouse_exited" from="InGameBox" to="." method="_on_in_game_box_mouse_exited"]

@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_w4pr6"]
 [ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Garden-Cycle_v2.1.mp3" id="9_hpw18"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_lawk8"]
-[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="11_dl1jf"]
+[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_c8tbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18150"]
+bg_color = Color(0, 0, 0, 0.35686275)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
 atlas = ExtResource("4_re52y")
@@ -112,9 +115,25 @@ script = ExtResource("1_c8tbp")
 beatsBeforeStart = 8
 
 [node name="Background" type="Sprite2D" parent="." unique_id=160389661]
-position = Vector2(5.9127808e-05, -1.4999529)
-scale = Vector2(0.59791666, 0.59351856)
+position = Vector2(0.999993, -4.4999676)
+scale = Vector2(0.59895825, 0.59907407)
 texture = ExtResource("2_c8tbp")
+
+[node name="FondNotes" type="Panel" parent="." unique_id=1943062747]
+custom_minimum_size = Vector2(1, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -832.0
+offset_top = -328.0
+offset_right = -830.1668
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(283.6598, 1)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_18150")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1362532479]
 
@@ -163,9 +182,9 @@ stream = ExtResource("9_hpw18")
 songBPM = 81
 
 [node name="FondScore" type="Panel" parent="." unique_id=1452911590]
-offset_left = -561.0
+offset_left = -560.0
 offset_top = -309.0
-offset_right = -292.0
+offset_right = -291.0
 offset_bottom = -153.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1yluu")
 
@@ -192,14 +211,14 @@ text = "Combo :  x1"
 vertical_alignment = 1
 
 [node name="Options" type="TextureButton" parent="." unique_id=560205324]
-custom_minimum_size = Vector2(80, 80)
-offset_left = 458.0
+custom_minimum_size = Vector2(60, 60)
+offset_left = 496.0
 offset_top = -309.0
-offset_right = 538.0
-offset_bottom = -229.0
-texture_normal = ExtResource("11_dl1jf")
-texture_pressed = ExtResource("11_dl1jf")
-texture_hover = ExtResource("11_dl1jf")
+offset_right = 560.0
+offset_bottom = -249.0
+texture_normal = ExtResource("11_c8tbp")
+texture_pressed = ExtResource("11_c8tbp")
+texture_hover = ExtResource("11_c8tbp")
 ignore_texture_size = true
 stretch_mode = 5
 

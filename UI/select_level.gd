@@ -59,3 +59,15 @@ func _on_bottom_hover(btn: Button) -> void:
 
 func _on_bottom_exit(btn: Button) -> void:
 	btn.modulate = Color("ffffff")
+
+
+
+
+func _on_bottom_bar_mouse_entered() -> void:
+	$BottomBar/RetourBox/BtnRetour.modulate = Color("b2b2b2ff")
+	$BottomBar/SettingsBox/BtnSettings.modulate = Color("b2b2b2ff")
+
+
+func _on_bottom_bar_mouse_exited() -> void:
+	$BottomBar/RetourBox/BtnRetour.modulate = Color("fff")
+	$BottomBar/SettingsBox/BtnSettings.modulate = Color("fff")

@@ -25,20 +25,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.056291588, 0.056291603, 0.056291595, 1)
 
-[node name="BoutonRetour" type="TextureButton" parent="." unique_id=429962553]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 156.0
-grow_vertical = 0
-texture_normal = ExtResource("2_ur1mf")
-texture_pressed = ExtResource("2_ur1mf")
-texture_hover = ExtResource("2_ur1mf")
-ignore_texture_size = true
-stretch_mode = 3
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=855414684]
 layout_mode = 1
 anchors_preset = 14
@@ -57,9 +43,9 @@ theme_override_fonts/italics_font = ExtResource("5_tiksb")
 theme_override_fonts/mono_font = ExtResource("2_6m0of")
 bbcode_enabled = true
 text = "[center]
-[b]RYTHM-CYCLE[/b]
+[b]RHYTHM-CYCLE[/b]
 
-[b]Chef de Projet [/b]
+[b]Cheffe de Projet [/b]
 EL ARAARI Maelys
 
 [b] Lead Développeur [/b]
@@ -69,25 +55,45 @@ AUBERT Lily
 HAMMOUDA Rayane
 FERCHICHE Jalil-Eddine
 
-[b] Testeurs & Utilisateurs [/b]
+[b] Illustrations [/b]
 EL ARAARI Maelys
-RICARD Noah
+RICARD Noah (boutons)
 
-[b] Compositeurs [/b]
+[b] Compositeur [/b]
 RICARD Noah
 
 [b] Musiques [/b]
-Musique crée par RICARD Noah
-....
-....
+Coffee-Cycle
+Office-Cycle
+Beach-Cycle
+Rhythm-Cycle Menu
+Les Maîtres du Code (généré sur Mureka)
 
 [b] Assets Graphiques [/b]
-Police d'écriture : [Nom de la police]
-...
+Police d'écriture : Inter Tight
+
+Projet réalisé à l'Université Lumière Lyon 2
+Licence 2 Informatique
+
+[b]Merci d'avoir joué :)[/b]
+
 
 [/center]"
 fit_content = true
 scroll_active = false
+
+[node name="BoutonRetour" type="TextureButton" parent="." unique_id=485885613]
+custom_minimum_size = Vector2(64, 60)
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 16.0
+offset_right = 1132.0
+offset_bottom = 76.0
+texture_normal = ExtResource("2_ur1mf")
+texture_pressed = ExtResource("2_ur1mf")
+texture_hover = ExtResource("2_ur1mf")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="mouse_entered" from="BoutonRetour" to="." method="_on_bouton_retour_mouse_entered"]
 [connection signal="mouse_exited" from="BoutonRetour" to="." method="_on_bouton_retour_mouse_exited"]

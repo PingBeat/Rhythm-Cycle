@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_0152w"]
 [ext_resource type="AudioStream" uid="uid://b0otl6kx3nvc7" path="res://Assets/Audio/Office-Cycle.mp3" id="9_6gx4j"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_0xkbw"]
-[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="11_x370a"]
+[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_rbgk5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbgk5"]
+bg_color = Color(0, 0, 0, 0.35686275)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
 atlas = ExtResource("4_dgfda")
@@ -116,6 +119,22 @@ position = Vector2(-3.528595e-05, -0.49997425)
 scale = Vector2(0.5989583, 0.6027778)
 texture = ExtResource("2_rbgk5")
 
+[node name="FondNotes" type="Panel" parent="." unique_id=845729470]
+custom_minimum_size = Vector2(1, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -832.0044
+offset_top = -325.0
+offset_right = -830.1712
+offset_bottom = -325.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(283.6598, 1)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbgk5")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1362532479]
 
 [node name="Key" parent="." unique_id=742953539 instance=ExtResource("3_orowq")]
@@ -191,15 +210,15 @@ theme_override_fonts/normal_font = ExtResource("10_0xkbw")
 text = "Combo :  x1"
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="." unique_id=560205324]
-custom_minimum_size = Vector2(80, 80)
-offset_left = 458.0
+[node name="Options" type="TextureButton" parent="." unique_id=2111883072]
+custom_minimum_size = Vector2(60, 60)
+offset_left = 496.0
 offset_top = -309.0
-offset_right = 538.0
-offset_bottom = -229.0
-texture_normal = ExtResource("11_x370a")
-texture_pressed = ExtResource("11_x370a")
-texture_hover = ExtResource("11_x370a")
+offset_right = 560.0
+offset_bottom = -249.0
+texture_normal = ExtResource("11_rbgk5")
+texture_pressed = ExtResource("11_rbgk5")
+texture_hover = ExtResource("11_rbgk5")
 ignore_texture_size = true
 stretch_mode = 5
 

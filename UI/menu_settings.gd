@@ -6,9 +6,8 @@ var bus_index
 @onready var fond_pingouin: TextureRect = $TextureRect
 @onready var fond_gris: ColorRect = $FondGris
 @onready var tv_color = $TVColor
-@onready var annuler_controls = $AnnulerBox
-@onready var valider_controls = $ValiderBox
-@onready var pause_controls = $PauseControls
+@onready var in_menu_controls = $InMenu
+@onready var in_game_controls = $InGameBox
 @onready var slider_volume = $TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume
 @onready var val_label = $TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/ValueLabel
 
@@ -24,16 +23,14 @@ func _ready():
 	if get_tree().current_scene == self:
 		fond_pingouin.visible = true
 		fond_gris.visible = false
-		pause_controls.visible = false
-		annuler_controls.visible = true
-		valider_controls .visible = true
+		in_game_controls.visible = false
+		in_menu_controls.visible = true
 	else:
 		fond_pingouin.visible = false
 		fond_gris.visible = true
-		pause_controls.visible = true
+		in_game_controls.visible = true
 		# On cache les boutons tv stand si on est en jeu
-		annuler_controls.visible = false
-		valider_controls .visible = false
+		in_menu_controls.visible = false
 
 # --- 3. FERMER AVEC ÉCHAP ---
 func _input(event):
@@ -82,3 +79,23 @@ func _on_bouton_restart_pressed() -> void:
 func _on_bouton_exit_pressed() -> void:
 	get_tree().paused = false
 	LoadingScreen.change_scene("res://UI/main_menu.tscn")
+
+func _on_in_menu_mouse_entered() -> void:
+	$InMenu/InMenuRetourBox/BoutonRetour.modulate = Color("b2b2b2ff")
+	$InMenu/InMenuLevelBox/BoutonValider.modulate = Color("b2b2b2ff")
+
+
+func _on_in_menu_mouse_exited() -> void:
+	$InMenu/InMenuLevelBox/BoutonValider.modulate = Color("fff")
+	$InMenu/InMenuRetourBox/BoutonRetour.modulate = Color("fff")
+
+
+func _on_in_game_box_mouse_entered() -> void:
+	$InGameBox/BoxNiv/Menu_Button.modulate = Color("b2b2b2ff")
+	$InGameBox/BoxSuivant/Play_Button.modulate = Color("b2b2b2ff")
+	$InGameBox/BoxRetry/Retry_Button.modulate = Color("b2b2b2ff")
+
+func _on_in_game_box_mouse_exited() -> void:
+	$InGameBox/BoxNiv/Menu_Button.modulate = Color("b2b2b2ff")
+	$InGameBox/BoxSuivant/Play_Button.modulate = Color("b2b2b2ff")
+	$InGameBox/BoxRetry/Retry_Button.modulate = Color("b2b2b2ff")

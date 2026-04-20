@@ -24,8 +24,6 @@ corner_radius_bottom_left = 5
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 2.0
-shadow_size = 1
-shadow_offset = Vector2(4, -2)
 
 [node name="FinishMenu" type="Control" unique_id=1214162262]
 process_mode = 3
@@ -53,12 +51,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -373.09912
-offset_top = -251.92325
+offset_top = -251.92322
 offset_right = 373.09912
-offset_bottom = 251.92325
+offset_bottom = 251.92322
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8787628, 1.0139323)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qhbc3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=60794754]
@@ -110,17 +107,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -241.58612
+offset_left = -574.0
 offset_top = -150.53632
-offset_right = 446.41388
+offset_right = 574.0
 offset_bottom = -50.536316
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.0635047, 0.9447028)
 theme_override_constants/separation = 77
+alignment = 1
 
-[node name="Menu-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=2118876629]
-custom_minimum_size = Vector2(100, 100)
+[node name="BoxNiv" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1419512857]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Menu-Button" type="TextureButton" parent="Panel/HBoxContainer/BoxNiv" unique_id=2118876629]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("5_66pv5")
 texture_pressed = ExtResource("5_66pv5")
@@ -128,20 +129,20 @@ texture_hover = ExtResource("5_66pv5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Menu" type="Label" parent="Panel/HBoxContainer/Menu-Button" unique_id=1469403620]
-layout_mode = 0
-offset_left = -7.490079
-offset_top = 105.4428
-offset_right = 103.50992
-offset_bottom = 144.44281
+[node name="Menu" type="Label" parent="Panel/HBoxContainer/BoxNiv" unique_id=1469403620]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_i4hac")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
 text = "Niveaux"
 
-[node name="Play-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=800449966]
-custom_minimum_size = Vector2(100, 100)
+[node name="BoxSuivant" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1801697206]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Play-Button" type="TextureButton" parent="Panel/HBoxContainer/BoxSuivant" unique_id=800449966]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("6_tkpos")
 texture_pressed = ExtResource("6_tkpos")
@@ -149,20 +150,20 @@ texture_hover = ExtResource("6_tkpos")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Play" type="Label" parent="Panel/HBoxContainer/Play-Button" unique_id=1152068769]
-layout_mode = 0
-offset_left = -2.5878944
-offset_top = 105.442795
-offset_right = 99.41211
-offset_bottom = 144.4428
+[node name="Play" type="Label" parent="Panel/HBoxContainer/BoxSuivant" unique_id=1152068769]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_i4hac")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
 text = "Suivant"
 
-[node name="Retry-Button" type="TextureButton" parent="Panel/HBoxContainer" unique_id=1202370744]
-custom_minimum_size = Vector2(100, 100)
+[node name="BoxRetry" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=343009088]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Retry-Button" type="TextureButton" parent="Panel/HBoxContainer/BoxRetry" unique_id=1202370744]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("7_8a65m")
 texture_pressed = ExtResource("7_8a65m")
@@ -170,20 +171,16 @@ texture_hover = ExtResource("7_8a65m")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Retry" type="Label" parent="Panel/HBoxContainer/Retry-Button" unique_id=1973434670]
-layout_mode = 0
-offset_left = -13.735931
-offset_top = 105.4428
-offset_right = 128.26407
-offset_bottom = 144.44281
+[node name="Retry" type="Label" parent="Panel/HBoxContainer/BoxRetry" unique_id=1973434670]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_i4hac")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nrcws")
 text = "Réessayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Panel/HBoxContainer/Menu-Button" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/Play-Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/Retry-Button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BoxNiv/Menu-Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BoxSuivant/Play-Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BoxRetry/Retry-Button" to="." method="_on_retry_button_pressed"]

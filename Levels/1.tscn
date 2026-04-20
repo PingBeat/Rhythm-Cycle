@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_vef74"]
 [ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Garden-Cycle_v2.1.mp3" id="9_hve3p"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_e33e4"]
+[ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_adc2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74s63"]
 bg_color = Color(0, 0, 0, 0.35686275)
@@ -209,5 +210,20 @@ theme_override_fonts/normal_font = ExtResource("10_e33e4")
 text = "Combo :  x1"
 vertical_alignment = 1
 
+[node name="Options" type="TextureButton" parent="." unique_id=974020281]
+custom_minimum_size = Vector2(60, 60)
+offset_left = 496.0
+offset_top = -309.0
+offset_right = 560.0
+offset_bottom = -249.0
+texture_normal = ExtResource("11_adc2f")
+texture_pressed = ExtResource("11_adc2f")
+texture_hover = ExtResource("11_adc2f")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="beatSignal" from="Conductor" to="." method="_on_conductor_beat_signal"]
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="Options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
