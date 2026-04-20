@@ -13,12 +13,13 @@ var tips: Array[String] = [
 	"Réparez vos objets cassés plutôt que d'en racheter neufs systématiquement."
 ]
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+# Déclaration de variables
+@onready var animation_player: AnimationPlayer = $AnimationPlayer 
 @onready var tip_label: RichTextLabel = $Control/TipLabel
-
 var scene_to_load: String = ""
 
 func _ready() -> void:
+	#Vérifie que l'image de chargement existe quand on lance le jeu
 	$Control.hide() # Caché par défaut
 	var bg_path = "res://Assets/Images/loading_bg.png"# Charge l'image
 	if ResourceLoader.exists(bg_path): #Vérifie que l'image existe
@@ -26,23 +27,18 @@ func _ready() -> void:
 		$Control/Background.texture = tex
 
 func change_scene(target_path: String) -> void:
-	scene_to_load = target_path
-	
-	# Choisir un conseil aléatoire
-	var random_tip = tips[randi() % tips.size()]
-	tip_label.text = "[center]" + random_tip + "[/center]"
-	
-	# Lancer l'animation d'apparition
-	$Control.show()
-	animation_player.play("fade_in")
+	#Fonction appelée depuis tous les menus pour changer de scène
+	scene_to_load = target_path #Variable avec le chemin de la scène à charger
+	var random_tip = tips[randi() % tips.size()] #Choisi un conseil aléatoire
+	tip_label.text = "[center]" + random_tip + "[/center]" #Centre le texte
+	$Control.show()#Lancer l'animation d'apparition
+	animation_player.play("fade_in") #Lance une animation de fondu
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
-	if anim_name == "fade_in":
-		# Quand l'écran est totalement noir/visible, on change de scène
+	#Fonction qui fait apparaitre l'écran de chargement au moment de changer de scène
+	if anim_name == "fade_in": # Quand l'écran est totalement noir/visible, on change de scène
 		get_tree().change_scene_to_file(scene_to_load)
-		# On ajoute un petit délai avec un timer pour laisser le temps de lire le conseil
-		await get_tree().create_timer(1.2).timeout
-		# Puis on relance l'animation pour disparaître
-		animation_player.play("fade_out")
+		await get_tree().create_timer(1.2).timeout #On ajoute un petit délai avec un timer pour laisser le temps de lire le conseil
+		animation_player.play("fade_out") #Puis on relance l'animation pour disparaître
 	elif anim_name == "fade_out":
-		$Control.hide()
+		$Control.hide() #On cache l'écran de chargement une fois que la nouvelle scène est chargée
