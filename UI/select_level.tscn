@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qv31i0rktpin" path="res://Assets/Images/Bouton/Return-Button.svg" id="4_ret"]
 [ext_resource type="Texture2D" uid="uid://bmi8r0hgi3tt2" path="res://Assets/Images/bureau_level.png" id="5_a3sea"]
 [ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="5_set"]
+[ext_resource type="FontFile" uid="uid://cnpr2jth1ol2k" path="res://Assets/Texte/Inter_Tight/static/InterTight-Medium.ttf" id="6_d58hw"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="9_d58hw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Btn"]
@@ -108,6 +109,19 @@ icon = ExtResource("4_d5krb")
 alignment = 0
 expand_icon = true
 
+[node name="Record" type="Label" parent="TVContainer/LevelsBox/CoffeeCycleButton" unique_id=999141875]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d58hw")
+theme_override_font_sizes/font_size = 16
+text = "Record : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OfficeCycleButton" type="Button" parent="TVContainer/LevelsBox" unique_id=184113384]
 custom_minimum_size = Vector2(440, 75)
 layout_mode = 2
@@ -125,6 +139,19 @@ icon = ExtResource("5_a3sea")
 alignment = 0
 expand_icon = true
 
+[node name="Record" type="Label" parent="TVContainer/LevelsBox/OfficeCycleButton" unique_id=1745123560]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d58hw")
+theme_override_font_sizes/font_size = 16
+text = "Record : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BeachCycleButton" type="Button" parent="TVContainer/LevelsBox" unique_id=601589045]
 custom_minimum_size = Vector2(440, 75)
 layout_mode = 2
@@ -141,6 +168,19 @@ text = "    Beach-Cycle"
 icon = ExtResource("3_beach")
 alignment = 0
 expand_icon = true
+
+[node name="Record" type="Label" parent="TVContainer/LevelsBox/BeachCycleButton" unique_id=1525945919]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d58hw")
+theme_override_font_sizes/font_size = 16
+text = "Record : "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BottomBar" type="HBoxContainer" parent="." unique_id=1739913309]
 layout_mode = 1
@@ -202,6 +242,3 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_frjae")
 text = "Paramètres"
 horizontal_alignment = 1
-
-[connection signal="mouse_entered" from="BottomBar" to="." method="_on_bottom_bar_mouse_entered"]
-[connection signal="mouse_exited" from="BottomBar" to="." method="_on_bottom_bar_mouse_exited"]
