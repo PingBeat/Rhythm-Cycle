@@ -107,7 +107,7 @@ func _on_conductor_finished() -> void:
 	# 4. Vérification de la fin du jeu (Niveau 3)
 	if niveau_actuel == 3:
 		Levelmanager.via_fin_de_jeu = true
-		get_tree().change_scene_to_file("res://UI/credits.tscn")
+		get_tree().change_scene_to_file("res://UI/CreditsMenu.tscn")
 	else:
 		# Sinon, on affiche le menu de fin normal
 		var canvas = CanvasLayer.new()

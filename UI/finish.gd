@@ -26,12 +26,17 @@ func _on_menu_button_pressed() -> void:
 
 func _on_play_button_pressed() -> void:
 	get_tree().paused = false
-	# On passe au niveau suivant
+	# On passe au niveau suivant dans le manager
 	Levelmanager.current_level += 1
+	# On vérifie si on a fini le jeu
 	if Levelmanager.current_level > Levelmanager.max_level:
-		get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+		LoadingScreen.change_scene("res://UI/main_menu.tscn")
 	else:
-		get_tree().reload_current_scene()
+		# AU LIEU DE RELOAD : On demande au manager le chemin du prochain niveau
+		var prochain_niveau = Levelmanager._load_level(Levelmanager.current_level)
+		
+		# On utilise ton LoadingScreen pour charger ce nouveau fichier
+		LoadingScreen.change_scene(prochain_niveau)
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false

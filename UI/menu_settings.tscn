@@ -154,6 +154,7 @@ text = "Plein écran"
 layout_mode = 2
 
 [node name="InMenu" type="HBoxContainer" parent="." unique_id=1693643954]
+visible = false
 layout_mode = 0
 offset_left = -1.0
 offset_top = 403.0
@@ -211,7 +212,6 @@ text = "Jouer"
 horizontal_alignment = 1
 
 [node name="InGameBox" type="HBoxContainer" parent="." unique_id=1867689194]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -267,7 +267,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_wgyuh")
-text = "Suivant"
+text = "Reprendre"
 
 [node name="BoxRetry" type="VBoxContainer" parent="InGameBox" unique_id=282628471]
 layout_mode = 2
