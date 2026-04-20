@@ -10,17 +10,12 @@
 [ext_resource type="FontFile" uid="uid://c7vfauxluqjwf" path="res://Assets/Texte/Inter_Tight/static/InterTight-SemiBoldItalic.ttf" id="7_k0a0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 2.0
+content_margin_bottom = 0.0
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_color = Color(0.40069774, 0.40069768, 0.40069783, 0.6)
-shadow_size = 1
-shadow_offset = Vector2(4, -2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(1, 1, 1, 1)
@@ -28,9 +23,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_color = Color(0.41598046, 0.41598043, 0.4159804, 0.6)
-shadow_size = 1
-shadow_offset = Vector2(4, -2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.29219002, 0.29219005, 0.29218993, 1)
@@ -38,16 +30,12 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_size = 5
-shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_size = 5
-shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
 bg_color = Color(1, 1, 1, 1)
@@ -55,8 +43,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_size = 5
-shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06t4h"]
 
@@ -81,88 +67,6 @@ texture = ExtResource("2_8ctay")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1663387561]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -295.0
-offset_top = 86.0
-offset_right = 307.0
-offset_bottom = 204.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 53
-alignment = 1
-
-[node name="BlocExit" type="VBoxContainer" parent="HBoxContainer" unique_id=708248568]
-layout_mode = 2
-
-[node name="Exit" type="TextureButton" parent="HBoxContainer/BlocExit" unique_id=1058071425]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("3_ev3b6")
-texture_pressed = ExtResource("3_ev3b6")
-texture_hover = ExtResource("3_ev3b6")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="LabelExit" type="Label" parent="HBoxContainer/BlocExit" unique_id=1517293862]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cafmx")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Quitter"
-horizontal_alignment = 1
-
-[node name="BlocPlay" type="VBoxContainer" parent="HBoxContainer" unique_id=32517878]
-layout_mode = 2
-
-[node name="Play" type="TextureButton" parent="HBoxContainer/BlocPlay" unique_id=486135610]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("4_k0a0m")
-texture_pressed = ExtResource("4_k0a0m")
-texture_hover = ExtResource("4_k0a0m")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="LabelPlay" type="Label" parent="HBoxContainer/BlocPlay" unique_id=266962395]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cafmx")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Jouer"
-horizontal_alignment = 1
-
-[node name="BlocOptions" type="VBoxContainer" parent="HBoxContainer" unique_id=1754860238]
-layout_mode = 2
-
-[node name="Options" type="TextureButton" parent="HBoxContainer/BlocOptions" unique_id=90816844]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("5_2mudq")
-texture_pressed = ExtResource("5_2mudq")
-texture_hover = ExtResource("5_2mudq")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="LabelOptions" type="Label" parent="HBoxContainer/BlocOptions" unique_id=1898939899]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cafmx")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
-text = "Paramètres"
-horizontal_alignment = 1
-
 [node name="LabelTitle" type="Label" parent="." unique_id=260524797]
 layout_mode = 1
 anchors_preset = 8
@@ -181,6 +85,87 @@ theme_override_font_sizes/font_size = 80
 text = "Rhythm-Cycle "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BlocExit" type="VBoxContainer" parent="." unique_id=1539632139]
+layout_mode = 0
+offset_left = 410.4
+offset_top = 406.0
+offset_right = 484.4
+offset_bottom = 510.9943
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Exit" type="TextureButton" parent="BlocExit" unique_id=125649903]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("3_ev3b6")
+texture_pressed = ExtResource("3_ev3b6")
+texture_hover = ExtResource("3_ev3b6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LabelExit" type="Label" parent="BlocExit" unique_id=1785888489]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_cafmx")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+text = "Quitter"
+horizontal_alignment = 1
+
+[node name="BlocPlay" type="VBoxContainer" parent="." unique_id=1053663153]
+layout_mode = 0
+offset_left = 532.2
+offset_top = 406.0
+offset_right = 606.2
+offset_bottom = 510.99426
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="BlocPlay" unique_id=478026246]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("4_k0a0m")
+texture_pressed = ExtResource("4_k0a0m")
+texture_hover = ExtResource("4_k0a0m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LabelPlay" type="Label" parent="BlocPlay" unique_id=922635042]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_cafmx")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+text = "Jouer"
+horizontal_alignment = 1
+
+[node name="BlocOptions" type="VBoxContainer" parent="." unique_id=1229360138]
+layout_mode = 0
+offset_left = 627.6
+offset_top = 406.0
+offset_right = 737.59985
+offset_bottom = 510.99402
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Options" type="TextureButton" parent="BlocOptions" unique_id=984522611]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("5_2mudq")
+texture_pressed = ExtResource("5_2mudq")
+texture_hover = ExtResource("5_2mudq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LabelOptions" type="Label" parent="BlocOptions" unique_id=1807483267]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_cafmx")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev3b6")
+text = "Paramètres"
+horizontal_alignment = 1
 
 [node name="TipsLabel" type="RichTextLabel" parent="." unique_id=1680944150]
 layout_mode = 0
@@ -216,7 +201,13 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
 text = "Crédits"
 
-[connection signal="pressed" from="HBoxContainer/BlocExit/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="HBoxContainer/BlocPlay/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/BlocOptions/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="BlocExit/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="BlocExit/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="BlocExit/Exit" to="." method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="BlocPlay/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="BlocPlay/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="BlocPlay/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="BlocOptions/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="BlocOptions/Options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="BlocOptions/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

@@ -6,7 +6,8 @@ var bus_index
 @onready var fond_pingouin: TextureRect = $TextureRect
 @onready var fond_gris: ColorRect = $FondGris
 @onready var tv_color = $TVColor
-@onready var bottom_controls = $BottomControls
+@onready var annuler_controls = $AnnulerBox
+@onready var valider_controls = $ValiderBox
 @onready var pause_controls = $PauseControls
 @onready var slider_volume = $TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume
 @onready var val_label = $TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/ValueLabel
@@ -24,13 +25,15 @@ func _ready():
 		fond_pingouin.visible = true
 		fond_gris.visible = false
 		pause_controls.visible = false
-		bottom_controls.visible = true
+		annuler_controls.visible = true
+		valider_controls .visible = true
 	else:
 		fond_pingouin.visible = false
 		fond_gris.visible = true
 		pause_controls.visible = true
 		# On cache les boutons tv stand si on est en jeu
-		bottom_controls.visible = false
+		annuler_controls.visible = false
+		valider_controls .visible = false
 
 # --- 3. FERMER AVEC ÉCHAP ---
 func _input(event):

@@ -42,16 +42,30 @@ func _on_exit_pressed() -> void:
 func _on_credits_pressed() -> void:
 	LoadingScreen.change_scene("res://UI/CreditsMenu.tscn") 
 
-func _on_bouton_retour_mouse_entered():
-	$HBoxContainer/BlocExit/Exit.modulate = Color("b2b2b2ff") 
-	$HBoxContainer/BlocPlay/Play.modulate = Color("b2b2b2ff") 
-	$HBoxContainer/BlocOptions/Options.modulate = Color("b2b2b2ff") 
-
-func _on_bouton_retour_mouse_exited():
-	$HBoxContainer/BlocExit/Exit.modulate = Color("ffffffff")
-	$HBoxContainer/BlocPlay/Play.modulate = Color("ffffffff")
-	$HBoxContainer/BlocOptions/Options.modulate = Color("ffffffff")
-
 
 func _on_play_pressed() -> void:
 	LoadingScreen.change_scene("res://UI/select_level.tscn")
+
+
+func _on_options_mouse_entered() -> void:
+	$BlocOptions/Options.modulate = Color("b2b2b2ff") 
+
+
+func _on_options_mouse_exited() -> void:
+	$BlocOptions/Options.modulate = Color("ffffffff")
+
+
+func _on_exit_mouse_entered() -> void:
+	$BlocExit/Exit.modulate = Color("b2b2b2ff")
+
+
+func _on_exit_mouse_exited() -> void:
+	$BlocExit/Exit.modulate = Color("ffffffff")
+
+
+func _on_play_mouse_entered() -> void:
+	$BlocPlay/Play.modulate = Color("b2b2b2ff")
+
+
+func _on_play_mouse_exited() -> void:
+	$BlocPlay/Play.modulate = Color("ffffffff")

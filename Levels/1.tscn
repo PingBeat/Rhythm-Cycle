@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b6pk60rdxa1ga" path="res://Assets/Images/poubelle_verte.png" id="5_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://cv0ttf3uijnme" path="res://Assets/Images/poubelle_marron.png" id="6_vef74"]
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_vef74"]
-[ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Coffee-Cycle_v2.1.mp3" id="9_hve3p"]
+[ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Garden-Cycle_v2.1.mp3" id="9_hve3p"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_e33e4"]
-[ext_resource type="Texture2D" uid="uid://brma0kxk7pvab" path="res://Assets/Images/Bouton/Settings-Button.svg" id="11_7apmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74s63"]
+bg_color = Color(0, 0, 0, 0.35686275)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
 atlas = ExtResource("3_ryrav")
@@ -116,6 +118,22 @@ position = Vector2(-5.1498413e-05, -2.0000043)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_adc2f")
 
+[node name="FondNotes" type="Panel" parent="." unique_id=1002973273]
+custom_minimum_size = Vector2(1, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -832.0044
+offset_top = -325.0
+offset_right = -830.1712
+offset_bottom = -325.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(283.6598, 1)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_74s63")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1362532479]
 
 [node name="Key" parent="." unique_id=742953539 instance=ExtResource("2_e2o6t")]
@@ -191,20 +209,5 @@ theme_override_fonts/normal_font = ExtResource("10_e33e4")
 text = "Combo :  x1"
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="." unique_id=560205324]
-custom_minimum_size = Vector2(80, 80)
-offset_left = 458.0
-offset_top = -309.0
-offset_right = 538.0
-offset_bottom = -229.0
-texture_normal = ExtResource("11_7apmo")
-texture_pressed = ExtResource("11_7apmo")
-texture_hover = ExtResource("11_7apmo")
-ignore_texture_size = true
-stretch_mode = 5
-
 [connection signal="beatSignal" from="Conductor" to="." method="_on_conductor_beat_signal"]
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
-[connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
-[connection signal="mouse_exited" from="Options" to="." method="_on_options_mouse_exited"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
