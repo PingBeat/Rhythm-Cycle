@@ -179,7 +179,7 @@ sprite_frames = SubResource("SpriteFrames_e36ub")
 
 [node name="Conductor" parent="." unique_id=2009809993 instance=ExtResource("8_vef74")]
 stream = ExtResource("9_hve3p")
-songBPM = 81
+songBPM = 80
 
 [node name="FondScore" type="Panel" parent="." unique_id=1452911590]
 offset_left = -561.0

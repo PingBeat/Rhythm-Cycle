@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b6pk60rdxa1ga" path="res://Assets/Images/poubelle_verte.png" id="6_xmgfc"]
 [ext_resource type="Texture2D" uid="uid://cv0ttf3uijnme" path="res://Assets/Images/poubelle_marron.png" id="7_mna11"]
 [ext_resource type="PackedScene" uid="uid://bt7240kd040e6" path="res://Gameplay/conductor.tscn" id="8_w4pr6"]
-[ext_resource type="AudioStream" uid="uid://dqbvm5ang1y1k" path="res://Assets/Audio/Garden-Cycle_v2.1.mp3" id="9_hpw18"]
+[ext_resource type="AudioStream" uid="uid://bd7j1d14qswhg" path="res://Assets/Audio/Beach-Cycle.mp3" id="9_c8tbp"]
 [ext_resource type="FontFile" uid="uid://dcendgwfv6ixn" path="res://Assets/Texte/Inter_Tight/static/InterTight-Bold.ttf" id="10_lawk8"]
 [ext_resource type="Texture2D" uid="uid://ctlew4y8ujarj" path="res://Assets/Images/Bouton/Menu-Button.svg" id="11_c8tbp"]
 
@@ -178,8 +178,8 @@ scale = Vector2(0.4125, 0.4125)
 sprite_frames = SubResource("SpriteFrames_e36ub")
 
 [node name="Conductor" parent="." unique_id=2009809993 instance=ExtResource("8_w4pr6")]
-stream = ExtResource("9_hpw18")
-songBPM = 81
+stream = ExtResource("9_c8tbp")
+songBPM = 144
 
 [node name="FondScore" type="Panel" parent="." unique_id=1452911590]
 offset_left = -560.0

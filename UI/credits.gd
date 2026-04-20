@@ -6,7 +6,7 @@ extends Control
 @onready var musique: AudioStreamPlayer = $MusiqueCredits
 
 var musique_normale = preload("res://Assets/Audio/Rhythm-Cycle-Menu.mp3")
-var musique_easter_egg = preload("res://Assets/Audio/Beach-Cycle.mp3")
+var musique_easter_egg = preload("res://Assets/Audio/Les_Maîtres_du_Code.mp3")
 
 # Sécurité pour éviter de changer de scène 100 fois par seconde
 var deja_en_train_de_quitter: bool = false
