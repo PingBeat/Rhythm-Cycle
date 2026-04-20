@@ -1,6 +1,7 @@
 extends Node #Classe de base Node de Godot
 
 #Variables d'etats :
+var scene_retour_settings: String = "res://UI/main_menu.tscn"
 var current_level: int = 1 #Numéro du niveau que le joueur est en train de jouer (1, 2 ou 3)
 var max_level: int = 3 #Nombre total de niveaux dans le jeu
 var level_unlocked: int = 3 #Tous les niveaux sont débloqués dès le départ, agit pour le bouton 'niveau suivant'

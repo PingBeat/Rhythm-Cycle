@@ -20,6 +20,7 @@ var tips: Array[String] = [
 func _ready() -> void:
 	# On pioche une phrase au hasard dans le tableau 'tips' et on remplace le texte de la télé
 	tips_txt.text = tips.pick_random()
+	Levelmanager.scene_retour_settings = "res://UI/main_menu.tscn"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

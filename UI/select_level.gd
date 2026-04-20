@@ -28,6 +28,8 @@ func _ready() -> void:
 	btn_retour.mouse_exited.connect(_on_bottom_exit.bind(btn_retour))
 	btn_settings.mouse_entered.connect(_on_bottom_hover.bind(btn_settings))
 	btn_settings.mouse_exited.connect(_on_bottom_exit.bind(btn_settings))
+	
+	Levelmanager.scene_retour_settings = "res://UI/select_level.tscn"
 
 func _on_office_pressed() -> void:
 	Levelmanager.current_level = 2
