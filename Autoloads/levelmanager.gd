@@ -4,9 +4,14 @@ extends Node #Classe de base Node de Godot
 var current_level: int = 1 #Numéro du niveau que le joueur est en train de jouer (1, 2 ou 3)
 var max_level: int = 3 #Nombre total de niveaux dans le jeu
 var level_unlocked: int = 3 #Tous les niveaux sont débloqués dès le départ, agit pour le bouton 'niveau suivant'
-#Scores mémorisés pendant la partie pour les afficher sur l'écran de fin:
-var meilleur_score: int = 0
 var dernier_score: int = 0
+var meilleurs_scores: Dictionary = {
+	1: 0, 
+	2: 0, 
+	3: 0
+}
+var niveaux_termines : Array = [] 
+var via_fin_de_jeu : bool = false
 
 func _unlock_level(level_to_unlock: int) -> void:
 	#Appelée depuis finish.gd à la fin d'une partie, permet de passer au niveau suivant
