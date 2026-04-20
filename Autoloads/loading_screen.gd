@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends CanvasLayer #S'affiche par-dessus tout le reste
 
 var tips: Array[String] = [
 	"Pensez à éteindre la lumière en quittant une pièce.",
@@ -20,10 +20,8 @@ var scene_to_load: String = ""
 
 func _ready() -> void:
 	$Control.hide() # Caché par défaut
-	
-	# Essayer de charger l'image de la télé si elle a été ajoutée
-	var bg_path = "res://Assets/Images/loading_bg.png"
-	if ResourceLoader.exists(bg_path):
+	var bg_path = "res://Assets/Images/loading_bg.png"# Charge l'image
+	if ResourceLoader.exists(bg_path): #Vérifie que l'image existe
 		var tex = ResourceLoader.load(bg_path)
 		$Control/Background.texture = tex
 
