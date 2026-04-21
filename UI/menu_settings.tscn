@@ -34,6 +34,8 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 2.0
 
+
+
 [node name="MenuSettings" type="Control" unique_id=1991154689]
 process_mode = 3
 layout_mode = 3
@@ -93,7 +95,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 22
 alignment = 1
 
 [node name="LabelTitle" type="Label" parent="TVColor/TVContent" unique_id=196550555]
@@ -106,7 +108,7 @@ horizontal_alignment = 1
 [node name="UniversalSettings" type="VBoxContainer" parent="TVColor/TVContent" unique_id=1626480604]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 22
 
 [node name="VolumeRow" type="HBoxContainer" parent="TVColor/TVContent/UniversalSettings" unique_id=587300145]
 layout_mode = 2
@@ -152,6 +154,13 @@ text = "Plein écran"
 
 [node name="CheckFullscreen" type="CheckBox" parent="TVColor/TVContent/UniversalSettings/FullscreenRow" unique_id=1095151476]
 layout_mode = 2
+
+[node name="BoutonControles" type="Button" parent="TVColor/TVContent/UniversalSettings" unique_id=1234567890]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 21
+text = "⌨️  Configurer les touches"
 
 [node name="InMenu" type="HBoxContainer" parent="." unique_id=1693643954]
 visible = false
@@ -294,6 +303,7 @@ vertical_alignment = 1
 
 [connection signal="value_changed" from="TVColor/TVContent/UniversalSettings/VolumeRow/SliderBox/SliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="toggled" from="TVColor/TVContent/UniversalSettings/FullscreenRow/CheckFullscreen" to="." method="_on_check_fullscreen_toggled"]
+[connection signal="pressed" from="TVColor/TVContent/UniversalSettings/BoutonControles" to="." method="_open_key_config"]
 [connection signal="mouse_entered" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_entered"]
 [connection signal="mouse_exited" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_mouse_exited"]
 [connection signal="pressed" from="InMenu/InMenuRetourBox/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

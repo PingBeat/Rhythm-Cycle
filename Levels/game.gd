@@ -99,6 +99,7 @@ func _on_conductor_finished() -> void:
 	var niveau_actuel = Levelmanager.current_level
 	if score > Levelmanager.meilleurs_scores[niveau_actuel]:
 		Levelmanager.meilleurs_scores[niveau_actuel] = score
+		Levelmanager.save_scores() # Persiste le nouveau record sur disque
 	
 	# 3. On note que ce niveau a été terminé (pour l'Easter Egg)
 	if not Levelmanager.niveaux_termines.has(niveau_actuel):

@@ -14,6 +14,14 @@ var meilleurs_scores: Dictionary = {
 var niveaux_termines : Array = [] 
 var via_fin_de_jeu : bool = false
 
+# Touches par défaut (physical keycodes) : Q, W, O, P
+const TOUCHES_DEFAUT: Dictionary = {
+	"bleu": 81,
+	"jaune": 87,
+	"vert": 79,
+	"marron": 80
+}
+
 func _unlock_level(level_to_unlock: int) -> void:
 	#Appelée depuis finish.gd à la fin d'une partie, permet de passer au niveau suivant
 	if level_to_unlock > level_unlocked:
@@ -36,22 +44,46 @@ func _ready():
 
 func save_settings(value):
 	#Sauvegarde le volume sur le disque
-	#Ecrit dans la section [audio] du fichier, la clé master_volume avec la valeur du slider
 	config.set_value("audio", "master_volume", value) 
-	config.save(save_path) # écrit physiquement le fichier settings.cfg sur le disque.
+	config.save(save_path)
+
+# --- SCORES ---
+func save_scores() -> void:
+	#Sauvegarde les meilleurs scores des 3 niveaux sur le disque
+	for i in meilleurs_scores:
+		config.set_value("scores", "level_" + str(i), meilleurs_scores[i])
+	config.save(save_path)
+
+# --- CONTRÔLES ---
+func save_controls(action: String, physical_keycode: int) -> void:
+	#Sauvegarde le remapping d'une touche sur le disque
+	config.set_value("controls", action, physical_keycode)
+	config.save(save_path)
+
+func apply_control(action: String, physical_keycode: int) -> void:
+	#Applique dynamiquement un remapping dans InputMap
+	InputMap.action_erase_events(action)
+	var event = InputEventKey.new()
+	event.physical_keycode = physical_keycode
+	InputMap.action_add_event(action, event)
 
 func load_settings():
-	#Charge et applique le volume au démarrage
-	var err = config.load(save_path) #retourne un code d'erreur : OK si le fichier n'existe pas
+	#Charge et applique le volume, les scores et les touches au démarrage
+	var err = config.load(save_path)
 	var vol = 1.0
-	if err == OK: 
-		#Si le fichier n'existe pas (première fois qu'on lance le jeu), vol reste à 1.0 (100%)
+	if err == OK:
 		vol = config.get_value("audio", "master_volume", 1.0)
-	#Sinon on applique le volume au bus Master
+		# Charger les meilleurs scores
+		for i in meilleurs_scores:
+			meilleurs_scores[i] = config.get_value("scores", "level_" + str(i), 0)
+		# Charger et appliquer les touches remappées
+		for action in TOUCHES_DEFAUT:
+			var keycode = config.get_value("controls", action, TOUCHES_DEFAUT[action])
+			apply_control(action, keycode)
+	# Appliquer le volume au bus Master
 	var bus_index = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(vol))
 	if vol <= 0.001:
-		#Si le volume est quasi nul, on coupe le son
 		AudioServer.set_bus_mute(bus_index, true)
 	else:
 		AudioServer.set_bus_mute(bus_index, false)
