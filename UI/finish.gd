@@ -12,14 +12,12 @@ extends Control
 func _ready() -> void:
 	# 1. On affiche le score qu'on vient de faire
 	score_label.text = "Score : " + str(Levelmanager.dernier_score) + " points"
-	
 	# 2. On affiche le meilleur score du niveau actuel
 	var niveau_actuel = Levelmanager.current_level
 	var record = Levelmanager.meilleurs_scores[niveau_actuel]
 	best_score_label.text = "Meilleur Score : " + str(record) + " points"
 
 # --- LOGIQUE DES BOUTONS ---
-
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/select_level.tscn")
@@ -32,10 +30,9 @@ func _on_play_button_pressed() -> void:
 	if Levelmanager.current_level > Levelmanager.max_level:
 		LoadingScreen.change_scene("res://UI/main_menu.tscn")
 	else:
-		# AU LIEU DE RELOAD : On demande au manager le chemin du prochain niveau
+		#On demande au manager le chemin du prochain niveau
 		var prochain_niveau = Levelmanager._load_level(Levelmanager.current_level)
-		
-		# On utilise ton LoadingScreen pour charger ce nouveau fichier
+		# On utilise le LoadingScreen pour charger ce nouveau fichier
 		LoadingScreen.change_scene(prochain_niveau)
 
 func _on_retry_button_pressed() -> void:
@@ -43,24 +40,18 @@ func _on_retry_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 # --- EFFETS DE SURVOL (HOVER) ---
-
 # Pour le bouton Menu (Niveaux)
 func _on_menu_button_mouse_entered() -> void:
 	btn_menu.modulate = Color("b2b2b2ff")
-
 func _on_menu_button_mouse_exited() -> void:
 	btn_menu.modulate = Color("ffffffff")
-
 # Pour le bouton Suivant
 func _on_play_button_mouse_entered() -> void:
 	btn_suivant.modulate = Color("b2b2b2ff")
-
 func _on_play_button_mouse_exited() -> void:
 	btn_suivant.modulate = Color("ffffffff")
-
 # Pour le bouton Réessayer
 func _on_retry_button_mouse_entered() -> void:
 	btn_retry.modulate = Color("b2b2b2ff")
-
 func _on_retry_button_mouse_exited() -> void:
 	btn_retry.modulate = Color("ffffffff")
